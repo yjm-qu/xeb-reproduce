@@ -8,11 +8,6 @@
 #   - p 是去极化概率：p=0 表示无噪声，p=1 表示完全随机（最大噪声）
 #   - d 是维度：单比特 d=2，双比特 d=4
 #   - 注意：p 不是直接的门错误率，需要通过实验标定
-#
-# 理论关系（用于验证 uniqc 实现是否与理论一致）：
-#   - 单比特: Gate Fidelity ≈ 1 - p/2 → ε ≈ p/2 → p/ε ≈ 2.0
-#   - 双比特: Gate Fidelity ≈ 1 - 3p/4 → ε ≈ 3p/4 → p/ε ≈ 1.333
-#   - 为什么要"建立关系"而不直接用公式？因为要验证 uniqc 的 Depolarizing 实现是否与理论一致
 
 # ============================================================
 # 物理实验流程（单门）- calibrate_single_gate 函数实现
@@ -80,7 +75,6 @@
 #         0.0012,0.0006
 #   场景 3（目标 p 标定）:
 #       输出: p=0.0016 → epsilon=0.0008; p/epsilon=2.0000
-#       验证: 单门 p/ε≈2.0，双门 p/ε≈1.333
 #
 # 使用示例：
 #   # 1. Sanity check（验证代码逻辑对）
@@ -91,9 +85,9 @@
 #   python calibrate.py --p_list 0.0008,0.0012,0.0016,0.0020,0.0024 --gate X      # 单门
 #   python calibrate.py --p_list 0.004,0.005,0.0062,0.007,0.008 --gate ISWAP      # 双门
 #
-#   # 3. 目标 p 标定（验证理论 p/ε 比值）
-#   python calibrate.py --p 0.0016 --gate X          # 单门，期望 p/ε≈2.0
-#   python calibrate.py --p 0.0062 --gate ISWAP     # 双门，期望 p/ε≈1.333
+#   # 3. 目标 p 标定
+#   python calibrate.py --p 0.0016 --gate X          # 单门
+#   python calibrate.py --p 0.0062 --gate ISWAP     # 双门
 #
 #   # 4. 自定义 shots
 #   python calibrate.py --p 0.0016 --shots 100000 --gate X
@@ -267,16 +261,15 @@ def main():
     #    场景 3：目标 p 标定（--p > 0 触发）
     #      - 调用 calibrate_xxx(p, gate, shots)
     #      - 输出: p=X.XXXX → epsilon=X.XXXX; p/epsilon=X.XXXX
-    #      - 验证: 单门 p/ε≈2.0，双门 p/ε≈1.333
     if p is not None and p > 0:
         epsilon = calibrate_func(p=p, gate=gate, shots=shots)
         if epsilon > 0:
             p_over_epsilon = p / epsilon
             print(f'p={p:.4f} → epsilon={epsilon:.4f}; p/epsilon={p_over_epsilon:.4f}')
             if gate == 'X':
-                print(f'验证: 单门期望 p/ε≈2.0，实际={p_over_epsilon:.4f}')
+                print(f'验证: 单门实际={p_over_epsilon:.4f}')
             else:
-                print(f'验证: 双门期望 p/ε≈1.333，实际={p_over_epsilon:.4f}')
+                print(f'验证: 双门实际={p_over_epsilon:.4f}')
         else:
             print(f'p={p:.4f} → epsilon={epsilon:.4f} (epsilon=0，无法计算 p/epsilon)')
 
