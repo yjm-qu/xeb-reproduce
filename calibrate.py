@@ -123,17 +123,19 @@ from uniqc.simulator import Depolarizing, NoisySimulator, TwoQubitDepolarizing, 
 # ============================================================
 def calibrate_single_gate(p, gate='X', shots=10000):
     # 1.定义噪声模型 → Depolarizing(p=p)
-    #    【关键】在这里加入去极化概率 p
+    #    【关键】与 xeb_v2.py 保持一致：用 gatetype_error
     #    p=0 时 ε 应该 ≈ 0（验证代码逻辑对）
+    # 与 xeb_v2.py 保持一致：用 U3 门
+    # U3(π, 0, 0) = X 门，产生确定态 |1⟩
     error_model = ErrorLoader_GateTypeError(
-        generic_error=[Depolarizing(p=p)],
-        gatetype_error={}  # 单门不需要特殊处理
+        generic_error=[Depolarizing(p=0)],
+        gatetype_error={'U3': [Depolarizing(p=p)]}  # 单门噪声
     )
     # 2.创建含噪声模拟器
     sim = NoisySimulator(backend_type='statevector', error_loader=error_model)
-    # 3.构建测试电路 → 制备 |0⟩，施加门，测量
+    # 3.构建测试电路 → 制备 |0⟩，施加 U3 门（=X），测量
     circuit = Circuit(1)
-    circuit.x(0)  # 施加 X 门：|0⟩ → |1⟩
+    circuit.add_gate('U3', 0, params=[np.pi, 0, 0])  # X 门：|0⟩ → |1⟩
     circuit.measure(0)
     # 4.用含噪声模拟器模拟 shots 次，每次采样得到一个比特串
     shot_result = sim.simulate_shots(circuit.originir, shots=shots)
