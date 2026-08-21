@@ -17,12 +17,14 @@
 # 实验参数（20 qubit / 20 cycle / K=10，与 Sycamore 实验一致）：
 #   n  = 20        qubit 数
 #   m  = 20        cycle 数（ABCDCDAB × 2 + ABCD = 20 cycle）
-#   N_s= 10**4     单次实验采样数（测试用，正式实验用 10**6）
+#   N_s= 10**3     单次实验采样数
 #   K  = 10        独立电路重复数
 #
-# 量子门错误率（与 Sycamore 实验一致）：
-#   eps1 = 0.0016  单量子门错误率
-#   eps2 = 0.0062  双量子门错误率
+# 噪声参数：
+#   EPS1 = 0.0025   单量子门 p 值（用于 Depolarizing 演化）
+#   EPS2 = 0.0074   双量子门 p 值（用于 TwoQubitDepolarizing 演化）
+#   EPS1_ERR = 0.0016  单量子门实际错误率 ε（用于 alpha_f 预测）
+#   EPS2_ERR = 0.0062  双量子门实际错误率 ε（用于 alpha_f 预测）
 #
 # 使用方法：
 #   将UNIQC_XXX() 函数替换为uniqc库的真实 API。
@@ -44,10 +46,12 @@
 # 与 Sycamore 实验一致
 N_QUBITS    = 20       # qubit 数
 M_CYCLES    = 20       # cycle 数（循环序列：ABCDCDAB）
-N_s         = 10 ** 4  # 单次实验采样数
-K_REPEATS   = 1        # 独立电路重复数,即K
-EPS1        = 0.0016   # 单量子门错误率
-EPS2        = 0.0062   # 双量子门错误率
+N_s         = 10 ** 3 * 2   # 单次实验采样数（10³ × 2 = 2000）
+K_REPEATS   = 10        # 独立电路重复数,即K
+EPS1        = 0.0025    # 单量子门 p 值（用于演化）
+EPS2        = 0.0074    # 双量子门 p 值（用于演化）
+EPS1_ERR    = 0.0016   # 单量子门实际错误率（用于 alpha_f 预测）
+EPS2_ERR    = 0.0062   # 双量子门实际错误率（用于 alpha_f 预测）
 
 # ============================================================
 # 代码库调用
@@ -315,9 +319,9 @@ def main(use_noise=False):
     #   2.1 算 G_1 = n*m（单量子门总数）、G_2 = 27*m/4（双量子门总数，ABCD 平均）
     G_1 = N_QUBITS * M_CYCLES
     G_2 = 27 * M_CYCLES / 4
-    #   2.2 预测保真度 alpha_f
+    #   2.2 预测保真度 alpha_f（用实际错误率，不是 p 值）
     if use_noise:
-        alpha_f = (1-EPS1)**G_1 * (1-EPS2)**G_2
+        alpha_f = (1-EPS1_ERR)**G_1 * (1-EPS2_ERR)**G_2
     else:
         alpha_f = 1.0
     #   2.3 若 use_noise=True，判断 N_s 是否足够（阈值：N_s ≳ 10/α_f²）：
