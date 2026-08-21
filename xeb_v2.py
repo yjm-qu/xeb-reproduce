@@ -180,7 +180,7 @@ def run_circuit(circuit, use_noise, N_s, seed=None, progress_callback=None):
         # 2.1 定义噪声模型
         # 注意：generic_error=[Depolarizing(p=0)] 不对任何门默认加噪声
         # 单门噪声通过 gatetype_error 专门加到 U3 门上
-        # 双门噪声加到 iswap 门上
+        # 双门噪声加到 ISWAP 门上
         error_model = ErrorLoader_GateTypeError(
             generic_error=[Depolarizing(p=0)],  # 无默认噪声
             gatetype_error={

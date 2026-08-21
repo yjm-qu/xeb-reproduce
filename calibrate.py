@@ -51,7 +51,7 @@
 #              类型: int，范围: > 0，默认: 10000
 #   --gate   : 门类型
 #              类型: str，默认: 'X'
-#              可选: 'X'（单门）、'iswap'（双门）
+#              可选: 'X'（单门）、'ISWAP'（双门）
 #
 # 参数校验规则：
 #   1. --p 和 --p_list 互斥，不能同时给
@@ -59,7 +59,7 @@
 #   3. 都给 → 报错
 #   4. --p < 0 或 --p > 1 → 报错（超出范围）
 #   5. --shots <= 0 → 报错
-#   6. --gate 不是 'X' 或 'iswap' → 报错
+#   6. --gate 不是 'X' 或 'ISWAP' → 报错
 #
 # 触发逻辑：
 #   场景 A（只有 --p 0）       → 场景 1（sanity check）
@@ -85,15 +85,15 @@
 # 使用示例：
 #   # 1. Sanity check（验证代码逻辑对）
 #   python calibrate.py --p 0 --gate X          # 单门 sanity
-#   python calibrate.py --p 0 --gate iswap      # 双门 sanity
+#   python calibrate.py --p 0 --gate ISWAP      # 双门 sanity
 #
 #   # 2. 多 p 扫描（验证 ε-p 线性关系）
 #   python calibrate.py --p_list 0.0008,0.0012,0.0016,0.0020,0.0024 --gate X      # 单门
-#   python calibrate.py --p_list 0.004,0.005,0.0062,0.007,0.008 --gate iswap      # 双门
+#   python calibrate.py --p_list 0.004,0.005,0.0062,0.007,0.008 --gate ISWAP      # 双门
 #
 #   # 3. 目标 p 标定（验证理论 p/ε 比值）
 #   python calibrate.py --p 0.0016 --gate X          # 单门，期望 p/ε≈2.0
-#   python calibrate.py --p 0.0062 --gate iswap     # 双门，期望 p/ε≈1.333
+#   python calibrate.py --p 0.0062 --gate ISWAP     # 双门，期望 p/ε≈1.333
 #
 #   # 4. 自定义 shots
 #   python calibrate.py --p 0.0016 --shots 100000 --gate X
@@ -156,12 +156,12 @@ def calibrate_single_gate(p, gate='X', shots=10000):
 # ============================================================
 # 参数说明：
 #   p     : depolarizing probability（float，0.0~1.0）
-#   gate  : 双门名称（str，默认 'iswap'）
+#   gate  : 双门名称（str，默认 'ISWAP'）
 #   shots : 重复测量次数（int，> 0）
 # 返回值：
 #   error_rate : 实际测量得到的错误率 ε（float，0.0~1.0，4 位小数）
 # ============================================================
-def calibrate_two_qubit_gate(p, gate='iswap', shots=10000):
+def calibrate_two_qubit_gate(p, gate='ISWAP', shots=10000):
     # 1.定义噪声模型 → TwoQubitDepolarizing(p=p)，单门无噪声(p=0)
     #    【关键】在这里加入去极化概率 p
     #    注意：制备 |01⟩ 的 X 门必须设为无噪声(p=0)
@@ -179,7 +179,7 @@ def calibrate_two_qubit_gate(p, gate='iswap', shots=10000):
     #    正确：用 |01⟩ 初态，iSWAP|01⟩ = i|10⟩ → |10⟩（编码 2，uniqc 固定用大端序）
     circuit = Circuit(2)
     circuit.x(0)  # 制备 |01⟩：q0=1, q1=0（big-endian：q1 高位 q0 低位）
-    circuit.iswap(0, 1)  # iSWAP: |01⟩ → i|10⟩
+    circuit.ISWAP(0, 1)  # iSWAP: |01⟩ → i|10⟩
     circuit.measure(0)
     circuit.measure(1)
     # 4.用含噪声模拟器模拟 shots 次，每次采样得到一个比特串
@@ -209,14 +209,14 @@ def main():
     parser.add_argument('--p', type=float, default=None, help='单个 depolarizing probability')
     parser.add_argument('--p_list', type=str, default=None, help='多个 p 值，用逗号分隔')
     parser.add_argument('--shots', type=int, default=10000, help='测量次数')
-    parser.add_argument('--gate', type=str, default='X', help='门类型：X（单门）或 iswap（双门）')
+    parser.add_argument('--gate', type=str, default='X', help='门类型：X（单门）或 ISWAP（双门）')
     args = parser.parse_args()
 
     # 2.参数校验
     #    - --p 和 --p_list 互斥：都给或都不给 → 报错
     #    - --p 范围检查：< 0 或 > 1 → 报错
     #    - --shots 检查：<= 0 → 报错
-    #    - --gate 检查：不是 'X' 或 'iswap' → 报错
+    #    - --gate 检查：不是 'X' 或 'ISWAP' → 报错
     if args.p is not None and args.p_list is not None:
         raise ValueError('--p 和 --p_list 不能同时给')
     if args.p is None and args.p_list is None:
@@ -225,8 +225,8 @@ def main():
         raise ValueError('--p 必须在 0.0 到 1.0 之间')
     if args.shots <= 0:
         raise ValueError('--shots 必须大于 0')
-    if args.gate not in ['X', 'iswap']:
-        raise ValueError('--gate 必须是 X 或 iswap')
+    if args.gate not in ['X', 'ISWAP']:
+        raise ValueError('--gate 必须是 X 或 ISWAP')
 
     p = args.p
     p_list = args.p_list
@@ -234,9 +234,9 @@ def main():
     gate = args.gate
 
     # 3.根据 --gate 决定调用哪个函数
-    #    - 'iswap' → calibrate_two_qubit_gate
+    #    - 'ISWAP' → calibrate_two_qubit_gate
     #    - 'X' → calibrate_single_gate（默认）
-    if gate == 'iswap':
+    if gate == 'ISWAP':
         calibrate_func = calibrate_two_qubit_gate
     else:
         calibrate_func = calibrate_single_gate
