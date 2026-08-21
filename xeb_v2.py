@@ -185,7 +185,7 @@ def run_circuit(circuit, use_noise, N_s, seed=None, progress_callback=None):
             generic_error=[Depolarizing(p=0)],  # 无默认噪声
             gatetype_error={
                 'U3': [Depolarizing(p=EPS1)],          # 单门噪声
-                'iswap': [TwoQubitDepolarizing(p=EPS2)], # 双门噪声
+                'ISWAP': [TwoQubitDepolarizing(p=EPS2)], # 双门噪声
             }
         )
         # 2.2 创建含噪声模拟器
