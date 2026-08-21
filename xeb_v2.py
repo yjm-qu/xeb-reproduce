@@ -177,11 +177,15 @@ def run_circuit(circuit, use_noise, N_s, seed=None, progress_callback=None):
     sim_ideal = Simulator('statevector')
     # 2.若 use_noise=True，则定义噪声模型并创建含噪声模拟器
     if use_noise:
-        # 2.1 定义噪声模型（单门用Depolarizing，双门用TwoQubitDepolarizing）
+        # 2.1 定义噪声模型
+        # 注意：generic_error=[Depolarizing(p=0)] 不对任何门默认加噪声
+        # 单门噪声通过 gatetype_error 专门加到 U3 门上
+        # 双门噪声加到 iswap 门上
         error_model = ErrorLoader_GateTypeError(
-            generic_error=[Depolarizing(p=EPS1)], #定义单门噪声
+            generic_error=[Depolarizing(p=0)],  # 无默认噪声
             gatetype_error={
-                'iswap':[TwoQubitDepolarizing(p=EPS2)], #定义双门噪声
+                'U3': [Depolarizing(p=EPS1)],          # 单门噪声
+                'iswap': [TwoQubitDepolarizing(p=EPS2)], # 双门噪声
             }
         )
         # 2.2 创建含噪声模拟器
