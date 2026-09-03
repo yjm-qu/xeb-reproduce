@@ -20,11 +20,12 @@
 #   N_s= 10**3     单次实验采样数
 #   K  = 10        独立电路重复数
 #
-# 噪声参数：
-#   EPS1 = 0.0025   单量子门 p 值（用于 Depolarizing 演化）
-#   EPS2 = 0.0074   双量子门 p 值（用于 TwoQubitDepolarizing 演化）
-#   EPS1_ERR = 0.0016  单量子门实际错误率 ε（用于 alpha_f 预测）
-#   EPS2_ERR = 0.0062  双量子门实际错误率 ε（用于 alpha_f 预测）
+# 噪声参数（来自标定实验 calibrate.py 实测，isolated + Neill 2017 公式）：
+#   EPS1       = 0.0016  单量子门 p 值（去极化概率，用于 Depolarizing 演化）
+#   EPS2       = 0.0062  双量子门 p 值（去极化概率，用于 TwoQubitDepolarizing 演化）
+#   EPS1_ERR   = 0.00172 单量子门实测错误率 ε₁（用于 alpha_f 预测）
+#   EPS2_ERR   = 0.00673 双量子门实测错误率 ε₂（用于 alpha_f 预测）
+#   EQ_ERR     = 0.00000 读出错误率 e_q（uniqc 无读出错误模型）
 #
 # 使用方法：
 #   将UNIQC_XXX() 函数替换为uniqc库的真实 API。
@@ -48,10 +49,11 @@ N_QUBITS    = 20       # qubit 数
 M_CYCLES    = 20       # cycle 数（循环序列：ABCDCDAB）
 N_s         = 10 ** 3 * 2   # 单次实验采样数（10³ × 2 = 2000）
 K_REPEATS   = 10        # 独立电路重复数,即K
-EPS1        = 0.0028    # 单量子门 p 值（用于演化）
-EPS2        = 0.0071    # 双量子门 p 值（用于演化）
-EPS1_ERR    = 0.0016   # 单量子门实际错误率（用于 alpha_f 预测）
-EPS2_ERR    = 0.0062   # 双量子门实际错误率（用于 alpha_f 预测）
+EPS1        = 0.0016    # 单量子门 p 值（用于演化，对应 isolated 标定）
+EPS2        = 0.0062    # 双量子门 p 值（用于演化，对应 isolated 标定）
+EPS1_ERR    = 0.00172   # 单量子门实测错误率 ε₁（isolated 标定实测值）
+EPS2_ERR    = 0.00673   # 双量子门实测错误率 ε₂（isolated 标定实测值）
+EQ_ERR      = 0.00000   # 读出错误率 e_q（uniqc 无读出错误模型）
 
 # ============================================================
 # 代码库调用
@@ -60,6 +62,8 @@ import numpy as np
 import random
 import argparse
 import time
+from concurrent.futures import ProcessPoolExecutor, as_completed
+from multiprocessing import cpu_count
 from uniqc import Circuit, Simulator
 from uniqc.simulator import Depolarizing, ErrorLoader_GateTypeError, NoisySimulator, ErrorLoader_GenericError, TwoQubitDepolarizing
 
@@ -264,36 +268,54 @@ def compute_F_XEB(psi, bitstrings, n):
 #   F_XEB_mean : F_XEB 的期望值
 #   F_XEB_std : F_XEB 的标准差
 # ============================================================
-def run_repeat_experiment(n, m, use_noise, N_s):
-    # 1.初始化结果列表：F_list = []（用于存 K 次实验的 F_XEB）
+
+
+def _run_one_experiment(k, n, m, use_noise, N_s):
+    """
+    单次实验 worker：跑 1 个随机线路 + 1 次 run_circuit + 1 次 compute_F_XEB
+    由 run_repeat_experiment 并行分发
+
+    参数：
+      k : int，随机种子（决定第 k 个随机线路）
+      n : int，qubit 数
+      m : int，cycle 数
+      use_noise : bool，是否加噪声
+      N_s : int，采样数
+
+    返回：
+      F_XEB : float，第 k 次实验的 F_XEB
+    """
+    random.seed(k)
+    circuit = generate_random_circuit(n, m, seed=k)
+    bitstrings, psi = run_circuit(circuit, use_noise, N_s, seed=k)
+    F_XEB = compute_F_XEB(psi, bitstrings, n)
+    return F_XEB
+
+
+def run_repeat_experiment(n, m, use_noise, N_s, n_workers=None):
+    """
+    并行版：K 次实验用 ProcessPoolExecutor 并行分发
+    K=10 + 32 worker → ~10x 加速
+    """
+    if n_workers is None:
+        n_workers = min(cpu_count(), K_REPEATS)
+
     F_list = []
-    # 2.循环 K_REPEATS 次（k = 0, 1, …, K_REPEATS-1），每次跑 1 个新随机线路：
-    for k in range(K_REPEATS):
-        #   2.1 生成随机线路：调用模块1的量子线路构建函数，生成第 k 个随机线路
-        circuit = generate_random_circuit(n, m, seed=k)
+    with ProcessPoolExecutor(max_workers=n_workers) as executor:
+        futures = [
+            executor.submit(_run_one_experiment, k, n, m, use_noise, N_s)
+            for k in range(K_REPEATS)
+        ]
+        for future in as_completed(futures):
+            try:
+                F_XEB = future.result()
+                F_list.append(F_XEB)
+            except Exception as e:
+                print(f"实验 {len(F_list)+1} 失败: {e}")
+                raise
 
-        #   2.2 定义进度回调函数
-        last_print = 0
-        def progress_callback(current_count, total_count, psi, bitstrings, n_qubits):
-            nonlocal last_print
-            if current_count // 100 > last_print:
-                F_XEB = compute_F_XEB(psi, bitstrings, n_qubits)
-                print(f"已采 {current_count}/{total_count}: F_XEB 估计 = {F_XEB:.4f}")
-                last_print = current_count // 100
-
-        #   2.3 跑模拟与测量：调用模块2的模拟与测量函数，得到比特串和纯态 psi
-        bitstrings, psi = run_circuit(circuit, use_noise, N_s, seed=k, progress_callback=progress_callback)
-
-        #   2.4 计算保真度：调用模块3的保真度计算函数，算本组的 F_XEB
-        F_XEB = compute_F_XEB(psi, bitstrings, n)
-
-        #   2.5 记录：把本组 F_XEB 添加到 F_list
-        F_list.append(F_XEB)
-
-    # 3.根据 F_list，用 numpy 计算 F_XEB 的均值和标准差
     F_XEB_mean = np.mean(F_list)
     F_XEB_std = np.std(F_list)
-    # 4.返回均值和标准差
     return F_XEB_mean, F_XEB_std
 
 
@@ -310,12 +332,13 @@ def run_repeat_experiment(n, m, use_noise, N_s):
 #   F_std  : K 次 F_XEB 的标准差
 #   alpha_f : 理论预测的保真度（用于对比；无噪声时 = 1）
 # ============================================================
-def main(use_noise=False):
+def main(use_noise=False, n_workers=None):
     # 1.打印实验模式（无噪声/含噪）+ 实验参数
     if use_noise:
         print(f"XEB Experiment - NOISY mode")
         print(f"Parameters: n={N_QUBITS}, m={M_CYCLES}, N_s={N_s}, K={K_REPEATS}")
-        print(f"Noise: eps1={EPS1}, eps2={EPS2}")
+        print(f"Injected p: eps1={EPS1}, eps2={EPS2}")
+        print(f"Measured ε: eps1_err={EPS1_ERR}, eps2_err={EPS2_ERR}, eq_err={EQ_ERR}")
     else:
         print(f"XEB Experiment - IDEAL mode")
         print(f"Parameters: n={N_QUBITS}, m={M_CYCLES}, N_s={N_s}, K={K_REPEATS}")
@@ -323,9 +346,10 @@ def main(use_noise=False):
     #   2.1 算 G_1 = n*m（单量子门总数）、G_2 = 27*m/4（双量子门总数，ABCD 平均）
     G_1 = N_QUBITS * M_CYCLES
     G_2 = 27 * M_CYCLES / 4
+    n_measurements = N_QUBITS
     #   2.2 预测保真度 alpha_f（用实际错误率，不是 p 值）
     if use_noise:
-        alpha_f = (1-EPS1_ERR)**G_1 * (1-EPS2_ERR)**G_2
+        alpha_f = (1-EPS1_ERR)**G_1 * (1-EPS2_ERR)**G_2 * (1-EQ_ERR)**n_measurements
     else:
         alpha_f = 1.0
     #   2.3 若 use_noise=True，判断 N_s 是否足够（阈值：N_s ≳ 10/α_f²）：
@@ -338,10 +362,11 @@ def main(use_noise=False):
         else:
             print(f"N_s is sufficient")
     # 3.主实验：调用模块 4 的 run_repeat_experiment 运行 K 次重复，得 (F_mean, F_std)
-    F_mean, F_std = run_repeat_experiment(N_QUBITS, M_CYCLES, use_noise, N_s)
+    F_mean, F_std = run_repeat_experiment(N_QUBITS, M_CYCLES, use_noise, N_s, n_workers=n_workers)
     # 4.打印实验结果
     print(f"Result: F_XEB = {F_mean:.6f} +/- {F_std:.6f}")
     print(f"Theory: alpha_f = {alpha_f:.6f}")
+    print(f"  其中 (1-ε₁)^G₁ * (1-ε₂)^G₂ * (1-e_q)^n = {alpha_f:.6f}")
     # 5.返回 (F_mean, F_std, alpha_f)
     return F_mean, F_std, alpha_f
 
@@ -353,5 +378,7 @@ def main(use_noise=False):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--noise", action="store_true", help="启用含噪声模拟")
+    parser.add_argument("--n-workers", type=int, default=None,
+                        help="并行 worker 数（默认自动用 CPU 核数）")
     args = parser.parse_args()
-    main(use_noise=args.noise)
+    main(use_noise=args.noise, n_workers=args.n_workers)
