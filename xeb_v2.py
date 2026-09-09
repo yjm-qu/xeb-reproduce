@@ -14,11 +14,13 @@
 # 模块 3:保真度计算 → 步骤 4：算 F_XEB
 # 模块 4:重复实验 → 步骤 5：重复 K 次取期望和标准差
 #
-# 实验参数（20 qubit / 20 cycle / K=10，与 Sycamore 实验一致）：
-#   n  = 20        qubit 数
+# 实验参数（n 可取任意值，20 cycle / K=10，与 Sycamore 实验一致）：
+#   n  = 10~24    qubit 数（通过 --n 或 --n_list 指定）
 #   m  = 20        cycle 数（ABCDCDAB × 2 + ABCD = 20 cycle）
-#   N_s= 10**3     单次实验采样数
+#   N_s= 2000     单次实验采样数（10³ × 2 = 2000）
 #   K  = 10        独立电路重复数
+#
+# 典型实验：n=10,12,14,16,18,20,22,24
 #
 # 噪声参数（来自标定实验 calibrate.py 实测，isolated + Neill 2017 公式）：
 #   EPS1       = 0.0016  单量子门 p 值（去极化概率，用于 Depolarizing 演化）
@@ -35,8 +37,10 @@
 #   F_XEB = 2^n · Σ_i P_sampled(x_i) · P_expected(x_i) - 1
 #
 # 命令行：
-#   python xeb_reproduce.py            # 无噪声（理想演化，ε=0）
-#   python xeb_reproduce.py --noise    # 含噪声（按eps1/eps2加噪声）
+#   python xeb_v2.py --n 10            # n=10，无噪声
+#   python xeb_v2.py --n 20 --noise    # n=20，含噪声
+#   python xeb_v2.py --n_list 10,12,14 # 批量跑多个 n
+#   python xeb_v2.py --n 10 --K 5      # n=10，重复 5 次
 #
 # 要改噪声大小，直接改源码顶部的 EPS1/EPS2 即可；不要噪声就把 --noise 去掉
 
@@ -44,8 +48,8 @@
 # ============================================================
 # 实验参数
 # ============================================================
-# 与 Sycamore 实验一致
-N_QUBITS    = 20       # qubit 数
+# 与 Sycamore 实验一致（n 通过命令行 --n 或 --n_list 传入）
+N_QUBITS    = 20       # 默认 qubit 数（可被命令行覆盖）
 M_CYCLES    = 20       # cycle 数（循环序列：ABCDCDAB）
 N_s         = 10 ** 3 * 2   # 单次实验采样数（10³ × 2 = 2000）
 K_REPEATS   = 10        # 独立电路重复数,即K
@@ -66,6 +70,9 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 from multiprocessing import cpu_count
 from uniqc import Circuit, Simulator
 from uniqc.simulator import Depolarizing, ErrorLoader_GateTypeError, NoisySimulator, ErrorLoader_GenericError, TwoQubitDepolarizing
+
+# 从 layout_gen 导入量子布局相关函数
+from layout_gen import compute_layout, compute_couplings, edge_coloring, plot_layout
 
 # ============================================================
 # 参数预设：单门集合与公共参数
@@ -104,18 +111,45 @@ ABCD_PAIRS = {
     'D': [(5, 16), (7, 18), (2, 3), (1, 10), (12, 13), (14, 15)],
 }
 
+
+# ============================================================
+# 【模块 0：量子布局生成】调用 layout_gen 生成 ABCD 4 批耦合对
+# ============================================================
+def generate_abcd_pairs(n):
+    """
+    根据 n 调用 layout_gen，自动生成 ABCD 4 批耦合对
+
+    参数：
+        n : int，量子比特数
+    返回：
+        layout : List[List[int]]，2D 错位布局
+        color_assignment : Dict[str, List[Tuple[int, int]]]，每种颜色(A/B/C/D)的耦合对
+    """
+    layout = compute_layout(n)
+    couplings = compute_couplings(layout)
+    color_assignment = edge_coloring(layout, couplings)
+    return layout, color_assignment
+
 # ============================================================
 # 【模块 1：量子线路构建】步骤 1 — 生成随机线路 U
 # ============================================================
 # 函数功能：生成 n qubit × m cycle 的随机线路 U
 # ============================================================
 # 参数说明：
-#   n       : 比特数
-#   m       : cycle 数
-#   seed    : 随机种子（保证线路可复现，即同 seed=相同量子线路；内部作为 random.seed() 的起点）
-#   circuit : 返回值，生成的随机量子线路对象（uniqc 线路）
+#   n               : 比特数
+#   m               : cycle 数
+#   color_assignment: 可选参数，Dict[str, List[Tuple[int, int]]]，从 layout_gen 生成的 4 色耦合对
+#                     若为 None，则使用默认的 ABCD_PAIRS 字典
+#   seed            : 随机种子（保证线路可复现，即同 seed=相同量子线路；内部作为 random.seed() 的起点）
+#   circuit         : 返回值，生成的随机量子线路对象（uniqc 线路）
 # ============================================================
-def generate_random_circuit(n, m, seed=None):
+def generate_random_circuit(n, m, color_assignment, seed=None):
+    # 强制要求传入 color_assignment，不使用硬编码 ABCD_PAIRS
+    assert color_assignment is not None, \
+        "color_assignment 不能为 None，否则会用 n=20 硬编码 ABCD_PAIRS"
+    # 使用 layout_gen 生成的 4 色耦合对
+    pairs_dict = color_assignment
+
     # 1.设置随机种子seed,即随机函数random的起点，用以保证实验可复现同 seed=生成相同电路，不同 seed=不同电路（生成K=10种不同线路，分别测量F_XEB并取均值）
     if seed is not None:
         random.seed(seed)
@@ -146,8 +180,8 @@ def generate_random_circuit(n, m, seed=None):
     #   4.2 双量子门层：按 ABCDCDAB 序列查本 cycle 应使用的子集，遍历子集内所有 qubit 对施加双门
         #   4.2.1 确定本序列字母：将cycle序号对8取模，查 ABCDCDAB 序列得本 cycle 子集对应的字母（A/B/C/D）
         letter = PATTERN_8CYCLE[cycle % 8]
-        #   4.2.2 查双量子比特对：查 ABCD_PAIRS 表得本 cycle 要施加的所有 qubit 对
-        pairs = ABCD_PAIRS[letter]
+        #   4.2.2 查双量子比特对：查 pairs_dict（color_assignment 或 ABCD_PAIRS）得本 cycle 要施加的所有 qubit 对
+        pairs = pairs_dict[letter]
         #   4.2.3 施加双门：遍历所有qubit对，只对在 n 范围内的对施加双门
         for (q1, q2) in pairs:
             if q1 < n and q2 < n:
@@ -270,7 +304,7 @@ def compute_F_XEB(psi, bitstrings, n):
 # ============================================================
 
 
-def _run_one_experiment(k, n, m, use_noise, N_s):
+def _run_one_experiment(k, n, m, color_assignment, use_noise, N_s):
     """
     单次实验 worker：跑 1 个随机线路 + 1 次 run_circuit + 1 次 compute_F_XEB
     由 run_repeat_experiment 并行分发
@@ -279,6 +313,7 @@ def _run_one_experiment(k, n, m, use_noise, N_s):
       k : int，随机种子（决定第 k 个随机线路）
       n : int，qubit 数
       m : int，cycle 数
+      color_assignment : Dict，4色耦合对（来自 layout_gen）
       use_noise : bool，是否加噪声
       N_s : int，采样数
 
@@ -286,13 +321,13 @@ def _run_one_experiment(k, n, m, use_noise, N_s):
       F_XEB : float，第 k 次实验的 F_XEB
     """
     random.seed(k)
-    circuit = generate_random_circuit(n, m, seed=k)
+    circuit = generate_random_circuit(n, m, color_assignment, seed=k)
     bitstrings, psi = run_circuit(circuit, use_noise, N_s, seed=k)
     F_XEB = compute_F_XEB(psi, bitstrings, n)
     return F_XEB
 
 
-def run_repeat_experiment(n, m, use_noise, N_s, n_workers=None):
+def run_repeat_experiment(n, m, color_assignment, use_noise, N_s, n_workers=None):
     """
     并行版：K 次实验用 ProcessPoolExecutor 并行分发
     K=10 + 32 worker → ~10x 加速
@@ -303,7 +338,7 @@ def run_repeat_experiment(n, m, use_noise, N_s, n_workers=None):
     F_list = []
     with ProcessPoolExecutor(max_workers=n_workers) as executor:
         futures = [
-            executor.submit(_run_one_experiment, k, n, m, use_noise, N_s)
+            executor.submit(_run_one_experiment, k, n, m, color_assignment, use_noise, N_s)
             for k in range(K_REPEATS)
         ]
         for future in as_completed(futures):
@@ -325,28 +360,58 @@ def run_repeat_experiment(n, m, use_noise, N_s, n_workers=None):
 # 函数功能：XEB 实验主流程
 # ============================================================
 # 参数说明：
+#   n         : 量子比特数（若为 None，则使用全局变量 N_QUBITS）
 #   use_noise : 是否加噪声（False=无噪声理想演化；True=含 Depolarizing 噪声演化）
 #               噪声大小由顶部的 EPS1 / EPS2 控制
+#   n_workers : 并行 worker 数
 # 返回值：
 #   F_mean : K 次 F_XEB 的均值
 #   F_std  : K 次 F_XEB 的标准差
 #   alpha_f : 理论预测的保真度（用于对比；无噪声时 = 1）
 # ============================================================
-def main(use_noise=False, n_workers=None):
-    # 1.打印实验模式（无噪声/含噪）+ 实验参数
+def main(n=None, use_noise=False, n_workers=None):
+    # 使用传入的 n 或默认的 N_QUBITS
+    if n is None:
+        n = N_QUBITS
+
+    # 1.生成 ABCD 4 批耦合对（调用 layout_gen）
+    layout, color_assignment = generate_abcd_pairs(n)
+    print(f"n={n}, layout={layout}")
+    print(f"color_assignment={{")
+    for c in ['A', 'B', 'C', 'D']:
+        print(f"  '{c}': {color_assignment[c]},")
+    print(f"}}")
+
+    # 验证打印
+    n_pairs = sum(len(color_assignment[c]) for c in ['A', 'B', 'C', 'D'])
+    print(f"[Verify] n = {n}")
+    print(f"[Verify] color_assignment 来源 = layout_gen.compute_layout({n}) → compute_couplings → edge_coloring")
+    print(f"[Verify] G_1 = n * M_CYCLES = {n} * {M_CYCLES} = {n * M_CYCLES}")
+    print(f"[Verify] G_2 = sum(ABCD pairs) * M_CYCLES / 4 = {n_pairs} * {M_CYCLES} / 4 = {n_pairs * M_CYCLES / 4}")
+    print(f"[Verify] 实际用 color_assignment['A']: {color_assignment['A'][:3]}...")
+
+    # 2.画 PNG 布局图
+    all_couplings = color_assignment['A'] + color_assignment['B'] + color_assignment['C'] + color_assignment['D']
+    import os
+    out_png = os.path.join(os.getcwd(), f"layout_n{n}.png")
+    plot_layout(layout, all_couplings, color_assignment, out_png)
+    print(f"布局图已保存: {out_png}")
+
+    # 3.打印实验模式（无噪声/含噪）+ 实验参数
     if use_noise:
         print(f"XEB Experiment - NOISY mode")
-        print(f"Parameters: n={N_QUBITS}, m={M_CYCLES}, N_s={N_s}, K={K_REPEATS}")
+        print(f"Parameters: n={n}, m={M_CYCLES}, N_s={N_s}, K={K_REPEATS}")
         print(f"Injected p: eps1={EPS1}, eps2={EPS2}")
         print(f"Measured ε: eps1_err={EPS1_ERR}, eps2_err={EPS2_ERR}, eq_err={EQ_ERR}")
     else:
         print(f"XEB Experiment - IDEAL mode")
-        print(f"Parameters: n={N_QUBITS}, m={M_CYCLES}, N_s={N_s}, K={K_REPEATS}")
+        print(f"Parameters: n={n}, m={M_CYCLES}, N_s={N_s}, K={K_REPEATS}")
     # 2.预测保真度 alpha_f（用于判断 N_s 是否足够）：
-    #   2.1 算 G_1 = n*m（单量子门总数）、G_2 = 27*m/4（双量子门总数，ABCD 平均）
-    G_1 = N_QUBITS * M_CYCLES
-    G_2 = 27 * M_CYCLES / 4
-    n_measurements = N_QUBITS
+    #   G_1 = n_qubits × m_cycles（每个 cycle 每个 qubit 1 个单门）
+    G_1 = n * M_CYCLES
+    #   G_2 = 总耦合对数 × m_cycles / 4（每个 cycle 只施加 1/4 的耦合对，4 批轮转）
+    G_2 = sum(len(color_assignment[c]) for c in ['A', 'B', 'C', 'D']) * M_CYCLES / 4
+    n_measurements = n
     #   2.2 预测保真度 alpha_f（用实际错误率，不是 p 值）
     if use_noise:
         alpha_f = (1-EPS1_ERR)**G_1 * (1-EPS2_ERR)**G_2 * (1-EQ_ERR)**n_measurements
@@ -362,7 +427,7 @@ def main(use_noise=False, n_workers=None):
         else:
             print(f"N_s is sufficient")
     # 3.主实验：调用模块 4 的 run_repeat_experiment 运行 K 次重复，得 (F_mean, F_std)
-    F_mean, F_std = run_repeat_experiment(N_QUBITS, M_CYCLES, use_noise, N_s, n_workers=n_workers)
+    F_mean, F_std = run_repeat_experiment(n, M_CYCLES, color_assignment, use_noise, N_s, n_workers=n_workers)
     # 4.打印实验结果
     print(f"Result: F_XEB = {F_mean:.6f} +/- {F_std:.6f}")
     print(f"Theory: alpha_f = {alpha_f:.6f}")
@@ -372,13 +437,53 @@ def main(use_noise=False, n_workers=None):
 
 # ============================================================
 # 【命令行入口】使用案例
-#   python xeb_v2.py            # 无噪声
+#   python xeb_v2.py            # 无噪声，默认 n=20
 #   python xeb_v2.py --noise    # 含噪声
+#   python xeb_v2.py --n 4     # n=4 量子比特
+#   python xeb_v2.py --n 6 --K 3  # n=6，重复 3 次
 # ============================================================
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+    parser.add_argument("--n", type=int, default=None,
+                        help="单个量子比特数")
+    parser.add_argument("--n_list", type=str, default=None,
+                        help="多个 n 逗号分隔，如 10,12,14,16,18,20,22,24")
+    parser.add_argument("--K", type=int, default=None,
+                        help="重复次数（默认使用全局变量 K_REPEATS=10）")
     parser.add_argument("--noise", action="store_true", help="启用含噪声模拟")
     parser.add_argument("--n-workers", type=int, default=None,
                         help="并行 worker 数（默认自动用 CPU 核数）")
     args = parser.parse_args()
-    main(use_noise=args.noise, n_workers=args.n_workers)
+
+    # 更新全局变量（临时覆盖）
+    if args.K is not None:
+        globals()['K_REPEATS'] = args.K
+
+    import os
+    import csv
+
+    if args.n_list:
+        # 批量模式：跑多个 n
+        n_list = [int(x) for x in args.n_list.split(",")]
+        results = []
+        for n in n_list:
+            print(f"\n{'='*60}")
+            print(f"n = {n}")
+            print('='*60)
+            F_mean, F_std, alpha_f = main(n=n, use_noise=args.noise, n_workers=args.n_workers)
+            # 找 PNG 路径
+            png_path = os.path.join(os.getcwd(), f"layout_n{n}.png")
+            results.append((n, F_mean, F_std, alpha_f, png_path))
+
+        # 写 CSV
+        csv_path = os.path.join(os.getcwd(), "results.csv")
+        with open(csv_path, "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["n", "F_XEB_mean", "F_XEB_std", "alpha_f", "deviation_pct", "layout_png"])
+            for n, F_mean, F_std, alpha_f, png in results:
+                dev = (F_mean - alpha_f) / alpha_f * 100
+                writer.writerow([n, F_mean, F_std, alpha_f, f"{dev:.2f}", png])
+        print(f"\n结果已保存到: {csv_path}")
+    else:
+        main(n=args.n, use_noise=args.noise, n_workers=args.n_workers)
+
