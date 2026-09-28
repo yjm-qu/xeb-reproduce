@@ -1,8 +1,6 @@
 *
 !.gitignore
 !README.md
-!xeb_v2.py
-!calibrate*.py
 !simulator/
 !simulator/**
 !real_machine/
