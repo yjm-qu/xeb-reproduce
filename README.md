@@ -43,14 +43,6 @@
 | `measured_params.json` | 实测标定表（与官方表同构格式，含溯源 provenance） |
 | `alpha_with_deco.py` | ④退相干项试算（归因分析用，非定稿口径） |
 
-**断网免疫提交/取回链（长批次墙钟排队场景）**
-
-| 文件 | 用途 |
-|---|---|
-| `submit_all_now.py` | 构建并提交（只提交不等待），task_id+线路元数据+psi 落盘 `pending_*.json` 后即退出 |
-| `fetch_all.py` | 从 pending 文件取回已完成任务并出结果 |
-| `launch_shallow.py` / `watch_shallow.sh` | 浅档验证批（m=9/12/15/18）发射与监测收尾 |
-| `watch_and_finish.sh` | 主实验批自动监测收尾 |
 
 **布局**
 
@@ -98,8 +90,6 @@ python3 xeb_v2_real.py --real --backend originq:WK_C180 \
     --ms 21 --k 30 --shots 20000 --seed-base 90000
 # 加 --dry-run 只做编译自检与 α 计算，不提交任务；--self-test 跑单元测试
 ```
-
-长批次排队场景可用 `submit_all_now.py` 只提交不等待，网络恢复后 `fetch_all.py` 取回。
 
 ### 模拟器实验
 
