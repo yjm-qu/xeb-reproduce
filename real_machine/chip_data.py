@@ -232,11 +232,18 @@ def main():
         validate_rows_edges(rows, result['edges'])
         print(f"\nRows validation passed: all {len(result['edges'])} edges connect adjacent rows")
 
-    # 硬性校验
-    assert result["summary"]["n_qubits"] == 17, \
-        f"Expected 17 qubits, got {result['summary']['n_qubits']}"
-    assert result["summary"]["n_edges"] == 20, \
-        f"Expected 20 edges, got {result['summary']['n_edges']}"
+    # 硬性校验（按后端区分：WK_C180_2 为 17 比特/20 边子图，
+    # WK_C180 全表为 166 比特/168 边——2026-09-22 首次生成即此规模）
+    if 'WK_C180_2' in args.backend:
+        assert result["summary"]["n_qubits"] == 17, \
+            f"Expected 17 qubits, got {result['summary']['n_qubits']}"
+        assert result["summary"]["n_edges"] == 20, \
+            f"Expected 20 edges, got {result['summary']['n_edges']}"
+    else:
+        assert result["summary"]["n_qubits"] == 166, \
+            f"Expected 166 qubits, got {result['summary']['n_qubits']}"
+        assert result["summary"]["n_edges"] == 168, \
+            f"Expected 168 edges, got {result['summary']['n_edges']}"
 
     # 验证 JSON 可重新加载
     json_str = json.dumps(result, indent=2)
