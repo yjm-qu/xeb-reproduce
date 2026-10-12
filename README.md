@@ -48,7 +48,6 @@
 | 文件 | 用途 |
 |---|---|
 | `selected_layout_n13A_3col.json` | **现役布局**：n=13 三环簇 A 版 3 色（物理比特 94~141 段，15 边，染色 A/B/C 各 5） |
-| `selected_layout_n13_v2.json` | 旧 4 色布局（已弃用，留档） |
 
 ### real_machine/results/ —— 真机实验结果
 
