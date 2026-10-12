@@ -1,0 +1,2402 @@
+{
+ "backend": "originq:WK_C180 (MEASURED v2 simultaneous, 13+15)",
+ "source_file": "/mnt/c/Users/Administrator/Downloads/本源悟空180芯片数据 (1).xlsx",
+ "parsed_at": "2026-10-08T01:06:42.626211+00:00",
+ "qubits": {
+  "0": {
+   "e_q": 0.052000000000000046,
+   "readout_fidelity": 0.948,
+   "f0": 0.973,
+   "f1": 0.923,
+   "gate1q_fidelity": 0.0,
+   "t1_us": 43.16,
+   "t2star_us": 2.51,
+   "t2echo_us": 5.1,
+   "freq_mhz": 4873.186
+  },
+  "1": {
+   "e_q": 0.11870000000000003,
+   "readout_fidelity": 0.8813,
+   "f0": 0.8782,
+   "f1": 0.8844,
+   "gate1q_fidelity": 0.9982,
+   "t1_us": 33.15,
+   "t2star_us": 3.01,
+   "t2echo_us": 7.37,
+   "freq_mhz": 5186.54
+  },
+  "2": {
+   "e_q": 0.17410000000000003,
+   "readout_fidelity": 0.8259,
+   "f0": 0.8044,
+   "f1": 0.8474,
+   "gate1q_fidelity": 0.9986,
+   "t1_us": 28.56,
+   "t2star_us": 5.36,
+   "t2echo_us": 9.83,
+   "freq_mhz": 5528.45
+  },
+  "3": {
+   "e_q": 0.05830000000000002,
+   "readout_fidelity": 0.9417,
+   "f0": 0.9914,
+   "f1": 0.892,
+   "gate1q_fidelity": 0.9992,
+   "t1_us": 27.25,
+   "t2star_us": 4.55,
+   "t2echo_us": 14.49,
+   "freq_mhz": 4641.824
+  },
+  "4": {
+   "e_q": 0.01980000000000004,
+   "readout_fidelity": 0.9802,
+   "f0": 0.9886,
+   "f1": 0.9718,
+   "gate1q_fidelity": 0.9985,
+   "t1_us": 89.12,
+   "t2star_us": 5.39,
+   "t2echo_us": 13.87,
+   "freq_mhz": 5078.024
+  },
+  "5": {
+   "e_q": 0.032299999999999995,
+   "readout_fidelity": 0.9677,
+   "f0": 0.9748,
+   "f1": 0.9606,
+   "gate1q_fidelity": 0.9989,
+   "t1_us": 35.57,
+   "t2star_us": 3.28,
+   "t2echo_us": 8.36,
+   "freq_mhz": 4867.678
+  },
+  "6": {
+   "e_q": 0.07099999999999995,
+   "readout_fidelity": 0.929,
+   "f0": 0.9736,
+   "f1": 0.8844,
+   "gate1q_fidelity": 0.9989,
+   "t1_us": 28.92,
+   "t2star_us": 3.22,
+   "t2echo_us": 10.74,
+   "freq_mhz": 5011.419
+  },
+  "7": {
+   "e_q": 0.0403,
+   "readout_fidelity": 0.9597,
+   "f0": 0.962,
+   "f1": 0.9574,
+   "gate1q_fidelity": 0.9994,
+   "t1_us": 45.56,
+   "t2star_us": 8.97,
+   "t2echo_us": 29.53,
+   "freq_mhz": 4726.559
+  },
+  "8": {
+   "e_q": 0.023700000000000054,
+   "readout_fidelity": 0.9763,
+   "f0": 0.9842,
+   "f1": 0.9684,
+   "gate1q_fidelity": 0.9991,
+   "t1_us": 43.01,
+   "t2star_us": 5.4,
+   "t2echo_us": 14.7,
+   "freq_mhz": 5258.532
+  },
+  "9": {
+   "e_q": 0.06000000000000005,
+   "readout_fidelity": 0.94,
+   "f0": 0.959,
+   "f1": 0.921,
+   "gate1q_fidelity": 0.9985,
+   "t1_us": 33.76,
+   "t2star_us": 5.68,
+   "t2echo_us": 14.58,
+   "freq_mhz": 4671.713
+  },
+  "10": {
+   "e_q": 0.015499999999999958,
+   "readout_fidelity": 0.9845,
+   "f0": 0.9904,
+   "f1": 0.9786,
+   "gate1q_fidelity": 0.9962,
+   "t1_us": 75.31,
+   "t2star_us": 3.87,
+   "t2echo_us": 8.19,
+   "freq_mhz": 5258.103
+  },
+  "11": {
+   "e_q": 0.030399999999999983,
+   "readout_fidelity": 0.9696,
+   "f0": 0.9912,
+   "f1": 0.948,
+   "gate1q_fidelity": 0.9985,
+   "t1_us": 58.86,
+   "t2star_us": 3.14,
+   "t2echo_us": 6.95,
+   "freq_mhz": 5244.062
+  },
+  "12": {
+   "e_q": 0.31120000000000003,
+   "readout_fidelity": 0.6888,
+   "f0": 0.7666,
+   "f1": 0.611,
+   "gate1q_fidelity": 0.9985,
+   "t1_us": 10.1,
+   "t2star_us": 7.83,
+   "t2echo_us": 18.28,
+   "freq_mhz": 5387.005
+  },
+  "13": {
+   "e_q": 0.04239999999999999,
+   "readout_fidelity": 0.9576,
+   "f0": 0.966,
+   "f1": 0.9492,
+   "gate1q_fidelity": 0.9984,
+   "t1_us": 29.06,
+   "t2star_us": 1.61,
+   "t2echo_us": 6.21,
+   "freq_mhz": 5043.17
+  },
+  "14": {
+   "e_q": 0.05710000000000004,
+   "readout_fidelity": 0.9429,
+   "f0": 0.9732,
+   "f1": 0.9126,
+   "gate1q_fidelity": 0.9992,
+   "t1_us": 26.16,
+   "t2star_us": 3.9,
+   "t2echo_us": 12.49,
+   "freq_mhz": 4779.922
+  },
+  "16": {
+   "e_q": 0.025399999999999978,
+   "readout_fidelity": 0.9746,
+   "f0": 0.9888,
+   "f1": 0.9604,
+   "gate1q_fidelity": 0.9991,
+   "t1_us": 32.2,
+   "t2star_us": 3.61,
+   "t2echo_us": 9.86,
+   "freq_mhz": 5199.071
+  },
+  "17": {
+   "e_q": 0.054300000000000015,
+   "readout_fidelity": 0.9457,
+   "f0": 0.9958,
+   "f1": 0.8956,
+   "gate1q_fidelity": 0.9985,
+   "t1_us": 30.52,
+   "t2star_us": 2.12,
+   "t2echo_us": 6.84,
+   "freq_mhz": 5002.912
+  },
+  "18": {
+   "e_q": 0.03310000000000002,
+   "readout_fidelity": 0.9669,
+   "f0": 0.9884,
+   "f1": 0.9454,
+   "gate1q_fidelity": 0.9988,
+   "t1_us": 52.85,
+   "t2star_us": 2.41,
+   "t2echo_us": 8.71,
+   "freq_mhz": 4993.843
+  },
+  "19": {
+   "e_q": 0.07579999999999998,
+   "readout_fidelity": 0.9242,
+   "f0": 0.9804,
+   "f1": 0.868,
+   "gate1q_fidelity": 0.9985,
+   "t1_us": 48.3,
+   "t2star_us": 2.81,
+   "t2echo_us": 7.03,
+   "freq_mhz": 5099.337
+  },
+  "20": {
+   "e_q": 0.19920000000000004,
+   "readout_fidelity": 0.8008,
+   "f0": 0.6562,
+   "f1": 0.9454,
+   "gate1q_fidelity": 0.9984,
+   "t1_us": 21.17,
+   "t2star_us": 4.21,
+   "t2echo_us": 12.09,
+   "freq_mhz": 4949.767
+  },
+  "22": {
+   "e_q": 0.09179999999999999,
+   "readout_fidelity": 0.9082,
+   "f0": 0.964,
+   "f1": 0.8524,
+   "gate1q_fidelity": 0.9991,
+   "t1_us": 35.38,
+   "t2star_us": 6.2,
+   "t2echo_us": 10.28,
+   "freq_mhz": 4869.185
+  },
+  "23": {
+   "e_q": 0.035800000000000054,
+   "readout_fidelity": 0.9642,
+   "f0": 0.9914,
+   "f1": 0.937,
+   "gate1q_fidelity": 0.9989,
+   "t1_us": 11.1,
+   "t2star_us": 3.3,
+   "t2echo_us": 7.78,
+   "freq_mhz": 5229.112
+  },
+  "24": {
+   "e_q": 0.02080000000000004,
+   "readout_fidelity": 0.9792,
+   "f0": 0.9944,
+   "f1": 0.964,
+   "gate1q_fidelity": 0.9978,
+   "t1_us": 21.02,
+   "t2star_us": 3.22,
+   "t2echo_us": 8.24,
+   "freq_mhz": 5397.96
+  },
+  "25": {
+   "e_q": 0.02629999999999999,
+   "readout_fidelity": 0.9737,
+   "f0": 0.9836,
+   "f1": 0.9638,
+   "gate1q_fidelity": 0.9982,
+   "t1_us": 44.69,
+   "t2star_us": 3.69,
+   "t2echo_us": 7.55,
+   "freq_mhz": 5103.731
+  },
+  "26": {
+   "e_q": 0.060799999999999965,
+   "readout_fidelity": 0.9392,
+   "f0": 0.957,
+   "f1": 0.9214,
+   "gate1q_fidelity": 0.9993,
+   "t1_us": 63.24,
+   "t2star_us": 5.52,
+   "t2echo_us": 18.66,
+   "freq_mhz": 4805.815
+  },
+  "27": {
+   "e_q": 0.13380000000000003,
+   "readout_fidelity": 0.8662,
+   "f0": 0.865,
+   "f1": 0.8674,
+   "gate1q_fidelity": 0.9992,
+   "t1_us": 28.22,
+   "t2star_us": 2.63,
+   "t2echo_us": 12.98,
+   "freq_mhz": 4745.338
+  },
+  "29": {
+   "e_q": 0.07230000000000003,
+   "readout_fidelity": 0.9277,
+   "f0": 0.9362,
+   "f1": 0.9192,
+   "gate1q_fidelity": 0.9994,
+   "t1_us": 35.42,
+   "t2star_us": 7.11,
+   "t2echo_us": 15.23,
+   "freq_mhz": 4757.713
+  },
+  "31": {
+   "e_q": 0.11150000000000004,
+   "readout_fidelity": 0.8885,
+   "f0": 0.9086,
+   "f1": 0.8684,
+   "gate1q_fidelity": 0.9987,
+   "t1_us": 46.91,
+   "t2star_us": 2.42,
+   "t2echo_us": 7.33,
+   "freq_mhz": 5307.056
+  },
+  "32": {
+   "e_q": 0.02839999999999998,
+   "readout_fidelity": 0.9716,
+   "f0": 0.9846,
+   "f1": 0.9586,
+   "gate1q_fidelity": 0.9988,
+   "t1_us": 17.95,
+   "t2star_us": 6.78,
+   "t2echo_us": 16.8,
+   "freq_mhz": 5365.254
+  },
+  "33": {
+   "e_q": 0.16890000000000005,
+   "readout_fidelity": 0.8311,
+   "f0": 0.9408,
+   "f1": 0.7214,
+   "gate1q_fidelity": 0.9978,
+   "t1_us": 27.81,
+   "t2star_us": 2.26,
+   "t2echo_us": 4.47,
+   "freq_mhz": 5051.623
+  },
+  "34": {
+   "e_q": 0.06340000000000001,
+   "readout_fidelity": 0.9366,
+   "f0": 0.9348,
+   "f1": 0.9384,
+   "gate1q_fidelity": 0.9993,
+   "t1_us": 64.56,
+   "t2star_us": 2.78,
+   "t2echo_us": 9.4,
+   "freq_mhz": 4934.724
+  },
+  "35": {
+   "e_q": 0.17390000000000005,
+   "readout_fidelity": 0.8261,
+   "f0": 0.9652,
+   "f1": 0.687,
+   "gate1q_fidelity": 0.9938,
+   "t1_us": 12.21,
+   "t2star_us": 2.86,
+   "t2echo_us": 9.26,
+   "freq_mhz": 4850.417
+  },
+  "36": {
+   "e_q": 0.2207,
+   "readout_fidelity": 0.7793,
+   "f0": 0.9988,
+   "f1": 0.5598,
+   "gate1q_fidelity": 0.9993,
+   "t1_us": 58.32,
+   "t2star_us": 5.3,
+   "t2echo_us": 18.01,
+   "freq_mhz": 5366.784
+  },
+  "37": {
+   "e_q": 0.14949999999999997,
+   "readout_fidelity": 0.8505,
+   "f0": 0.9974,
+   "f1": 0.7036,
+   "gate1q_fidelity": 0.9992,
+   "t1_us": 38.16,
+   "t2star_us": 2.82,
+   "t2echo_us": 12.74,
+   "freq_mhz": 5263.289
+  },
+  "38": {
+   "e_q": 0.1513,
+   "readout_fidelity": 0.8487,
+   "f0": 0.9876,
+   "f1": 0.7098,
+   "gate1q_fidelity": 0.9991,
+   "t1_us": 35.17,
+   "t2star_us": 3.47,
+   "t2echo_us": 22.32,
+   "freq_mhz": 5370.571
+  },
+  "39": {
+   "e_q": 0.3742,
+   "readout_fidelity": 0.6258,
+   "f0": 1.0,
+   "f1": 0.2516,
+   "gate1q_fidelity": 0.9969,
+   "t1_us": 10.38,
+   "t2star_us": 3.34,
+   "t2echo_us": 12.7,
+   "freq_mhz": 5067.186
+  },
+  "40": {
+   "e_q": 0.03959999999999997,
+   "readout_fidelity": 0.9604,
+   "f0": 0.9388,
+   "f1": 0.982,
+   "gate1q_fidelity": 0.9993,
+   "t1_us": 25.4,
+   "t2star_us": 7.76,
+   "t2echo_us": 29.35,
+   "freq_mhz": 4658.854
+  },
+  "41": {
+   "e_q": 0.2015,
+   "readout_fidelity": 0.7985,
+   "f0": 0.9874,
+   "f1": 0.6096,
+   "gate1q_fidelity": 0.9995,
+   "t1_us": 33.93,
+   "t2star_us": 3.09,
+   "t2echo_us": 13.33,
+   "freq_mhz": 4817.737
+  },
+  "42": {
+   "e_q": 0.22009999999999996,
+   "readout_fidelity": 0.7799,
+   "f0": 0.9904,
+   "f1": 0.5694,
+   "gate1q_fidelity": 0.9989,
+   "t1_us": 70.4,
+   "t2star_us": 3.28,
+   "t2echo_us": 5.11,
+   "freq_mhz": 4900.16
+  },
+  "43": {
+   "e_q": 0.36550000000000005,
+   "readout_fidelity": 0.6345,
+   "f0": 1.0,
+   "f1": 0.269,
+   "gate1q_fidelity": 0.999,
+   "t1_us": 36.43,
+   "t2star_us": 4.92,
+   "t2echo_us": 8.57,
+   "freq_mhz": 4873.838
+  },
+  "44": {
+   "e_q": 0.1583,
+   "readout_fidelity": 0.8417,
+   "f0": 0.9908,
+   "f1": 0.6926,
+   "gate1q_fidelity": 0.9994,
+   "t1_us": 35.25,
+   "t2star_us": 3.08,
+   "t2echo_us": 4.8,
+   "freq_mhz": 5030.573
+  },
+  "45": {
+   "e_q": 0.02429999999999999,
+   "readout_fidelity": 0.9757,
+   "f0": 0.9968,
+   "f1": 0.9546,
+   "gate1q_fidelity": 0.9988,
+   "t1_us": 14.48,
+   "t2star_us": 8.07,
+   "t2echo_us": 6.2,
+   "freq_mhz": 4928.225
+  },
+  "46": {
+   "e_q": 0.030399999999999983,
+   "readout_fidelity": 0.9696,
+   "f0": 0.989,
+   "f1": 0.9502,
+   "gate1q_fidelity": 0.9982,
+   "t1_us": 44.79,
+   "t2star_us": 3.59,
+   "t2echo_us": 16.16,
+   "freq_mhz": 4877.805
+  },
+  "47": {
+   "e_q": 0.15200000000000002,
+   "readout_fidelity": 0.848,
+   "f0": 0.99,
+   "f1": 0.706,
+   "gate1q_fidelity": 0.9986,
+   "t1_us": 15.06,
+   "t2star_us": 2.31,
+   "t2echo_us": 11.33,
+   "freq_mhz": 5003.508
+  },
+  "48": {
+   "e_q": 0.04720000000000002,
+   "readout_fidelity": 0.9528,
+   "f0": 0.9908,
+   "f1": 0.9148,
+   "gate1q_fidelity": 0.999,
+   "t1_us": 64.77,
+   "t2star_us": 4.82,
+   "t2echo_us": 24.39,
+   "freq_mhz": 5095.147
+  },
+  "49": {
+   "e_q": 0.052200000000000024,
+   "readout_fidelity": 0.9478,
+   "f0": 0.974,
+   "f1": 0.9216,
+   "gate1q_fidelity": 0.9992,
+   "t1_us": 47.6,
+   "t2star_us": 4.11,
+   "t2echo_us": 15.45,
+   "freq_mhz": 4926.198
+  },
+  "50": {
+   "e_q": 0.20820000000000005,
+   "readout_fidelity": 0.7918,
+   "f0": 0.9868,
+   "f1": 0.5968,
+   "gate1q_fidelity": 0.9984,
+   "t1_us": 17.99,
+   "t2star_us": 2.65,
+   "t2echo_us": 10.8,
+   "freq_mhz": 5138.278
+  },
+  "51": {
+   "e_q": 0.03969999999999996,
+   "readout_fidelity": 0.9603,
+   "f0": 0.9666,
+   "f1": 0.954,
+   "gate1q_fidelity": 0.9977,
+   "t1_us": 15.3,
+   "t2star_us": 4.34,
+   "t2echo_us": 14.62,
+   "freq_mhz": 4719.017
+  },
+  "52": {
+   "e_q": 0.028200000000000003,
+   "readout_fidelity": 0.9718,
+   "f0": 0.9806,
+   "f1": 0.963,
+   "gate1q_fidelity": 0.9992,
+   "t1_us": 45.91,
+   "t2star_us": 9.42,
+   "t2echo_us": 39.86,
+   "freq_mhz": 5413.673
+  },
+  "54": {
+   "e_q": 0.029900000000000038,
+   "readout_fidelity": 0.9701,
+   "f0": 0.9812,
+   "f1": 0.959,
+   "gate1q_fidelity": 0.9991,
+   "t1_us": 27.04,
+   "t2star_us": 3.93,
+   "t2echo_us": 13.28,
+   "freq_mhz": 4852.983
+  },
+  "55": {
+   "e_q": 0.03649999999999998,
+   "readout_fidelity": 0.9635,
+   "f0": 0.994,
+   "f1": 0.933,
+   "gate1q_fidelity": 0.9988,
+   "t1_us": 53.13,
+   "t2star_us": 4.35,
+   "t2echo_us": 13.43,
+   "freq_mhz": 4842.288
+  },
+  "56": {
+   "e_q": 0.0947,
+   "readout_fidelity": 0.9053,
+   "f0": 0.9074,
+   "f1": 0.9032,
+   "gate1q_fidelity": 0.9992,
+   "t1_us": 34.18,
+   "t2star_us": 5.21,
+   "t2echo_us": 23.41,
+   "freq_mhz": 4759.696
+  },
+  "57": {
+   "e_q": 0.038799999999999946,
+   "readout_fidelity": 0.9612,
+   "f0": 0.988,
+   "f1": 0.9344,
+   "gate1q_fidelity": 0.9989,
+   "t1_us": 35.99,
+   "t2star_us": 3.36,
+   "t2echo_us": 15.4,
+   "freq_mhz": 5119.01
+  },
+  "58": {
+   "e_q": 0.07089999999999996,
+   "readout_fidelity": 0.9291,
+   "f0": 0.994,
+   "f1": 0.8642,
+   "gate1q_fidelity": 0.9966,
+   "t1_us": 43.83,
+   "t2star_us": 2.84,
+   "t2echo_us": 7.56,
+   "freq_mhz": 5159.597
+  },
+  "59": {
+   "e_q": 0.13870000000000005,
+   "readout_fidelity": 0.8613,
+   "f0": 0.9906,
+   "f1": 0.732,
+   "gate1q_fidelity": 0.9983,
+   "t1_us": 37.4,
+   "t2star_us": 2.66,
+   "t2echo_us": 6.86,
+   "freq_mhz": 4849.491
+  },
+  "60": {
+   "e_q": 0.09540000000000004,
+   "readout_fidelity": 0.9046,
+   "f0": 0.995,
+   "f1": 0.8142,
+   "gate1q_fidelity": 0.9985,
+   "t1_us": 63.91,
+   "t2star_us": 4.2,
+   "t2echo_us": 12.19,
+   "freq_mhz": 5297.914
+  },
+  "61": {
+   "e_q": 0.031299999999999994,
+   "readout_fidelity": 0.9687,
+   "f0": 0.9916,
+   "f1": 0.9458,
+   "gate1q_fidelity": 0.9989,
+   "t1_us": 18.63,
+   "t2star_us": 2.27,
+   "t2echo_us": 10.11,
+   "freq_mhz": 4989.896
+  },
+  "62": {
+   "e_q": 0.03480000000000005,
+   "readout_fidelity": 0.9652,
+   "f0": 0.986,
+   "f1": 0.9444,
+   "gate1q_fidelity": 0.9978,
+   "t1_us": 25.57,
+   "t2star_us": 3.21,
+   "t2echo_us": 14.46,
+   "freq_mhz": 4911.205
+  },
+  "63": {
+   "e_q": 0.14229999999999998,
+   "readout_fidelity": 0.8577,
+   "f0": 0.8866,
+   "f1": 0.8288,
+   "gate1q_fidelity": 0.9986,
+   "t1_us": 31.66,
+   "t2star_us": 7.98,
+   "t2echo_us": 14.23,
+   "freq_mhz": 4694.114
+  },
+  "64": {
+   "e_q": 0.07179999999999997,
+   "readout_fidelity": 0.9282,
+   "f0": 0.9324,
+   "f1": 0.924,
+   "gate1q_fidelity": 0.9975,
+   "t1_us": 31.35,
+   "t2star_us": 3.31,
+   "t2echo_us": 7.27,
+   "freq_mhz": 4949.049
+  },
+  "65": {
+   "e_q": 0.33199999999999996,
+   "readout_fidelity": 0.668,
+   "f0": 0.7298,
+   "f1": 0.6062,
+   "gate1q_fidelity": 0.9985,
+   "t1_us": 18.01,
+   "t2star_us": 3.94,
+   "t2echo_us": 7.52,
+   "freq_mhz": 4962.186
+  },
+  "66": {
+   "e_q": 0.11829999999999996,
+   "readout_fidelity": 0.8817,
+   "f0": 0.9092,
+   "f1": 0.8542,
+   "gate1q_fidelity": 0.9986,
+   "t1_us": 13.07,
+   "t2star_us": 4.16,
+   "t2echo_us": 15.34,
+   "freq_mhz": 4723.317
+  },
+  "68": {
+   "e_q": 0.14229999999999998,
+   "readout_fidelity": 0.8577,
+   "f0": 0.8682,
+   "f1": 0.8472,
+   "gate1q_fidelity": 0.9988,
+   "t1_us": 38.31,
+   "t2star_us": 2.87,
+   "t2echo_us": 7.8,
+   "freq_mhz": 4795.275
+  },
+  "69": {
+   "e_q": 0.11350000000000005,
+   "readout_fidelity": 0.8865,
+   "f0": 0.891,
+   "f1": 0.882,
+   "gate1q_fidelity": 0.9971,
+   "t1_us": 36.07,
+   "t2star_us": 3.81,
+   "t2echo_us": 7.18,
+   "freq_mhz": 5370.295
+  },
+  "70": {
+   "e_q": 0.14349999999999996,
+   "readout_fidelity": 0.8565,
+   "f0": 0.877,
+   "f1": 0.836,
+   "gate1q_fidelity": 0.9988,
+   "t1_us": 36.74,
+   "t2star_us": 4.25,
+   "t2echo_us": 7.66,
+   "freq_mhz": 5323.044
+  },
+  "71": {
+   "e_q": 0.27049999999999996,
+   "readout_fidelity": 0.7295,
+   "f0": 0.9294,
+   "f1": 0.5296,
+   "gate1q_fidelity": 0.9987,
+   "t1_us": 39.83,
+   "t2star_us": 4.74,
+   "t2echo_us": 11.84,
+   "freq_mhz": 4838.366
+  },
+  "72": {
+   "e_q": 0.09119999999999995,
+   "readout_fidelity": 0.9088,
+   "f0": 0.9514,
+   "f1": 0.8662,
+   "gate1q_fidelity": 0.9965,
+   "t1_us": 60.34,
+   "t2star_us": 5.05,
+   "t2echo_us": 12.12,
+   "freq_mhz": 5369.482
+  },
+  "73": {
+   "e_q": 0.060899999999999954,
+   "readout_fidelity": 0.9391,
+   "f0": 0.9562,
+   "f1": 0.922,
+   "gate1q_fidelity": 0.9985,
+   "t1_us": 27.0,
+   "t2star_us": 4.82,
+   "t2echo_us": 22.4,
+   "freq_mhz": 4770.812
+  },
+  "74": {
+   "e_q": 0.14680000000000004,
+   "readout_fidelity": 0.8532,
+   "f0": 0.9776,
+   "f1": 0.7288,
+   "gate1q_fidelity": 0.9976,
+   "t1_us": 60.89,
+   "t2star_us": 5.72,
+   "t2echo_us": 16.2,
+   "freq_mhz": 5405.658
+  },
+  "75": {
+   "e_q": 0.022399999999999975,
+   "readout_fidelity": 0.9776,
+   "f0": 0.9916,
+   "f1": 0.9636,
+   "gate1q_fidelity": 0.998,
+   "t1_us": 57.67,
+   "t2star_us": 3.81,
+   "t2echo_us": 13.33,
+   "freq_mhz": 5327.225
+  },
+  "77": {
+   "e_q": 0.0121,
+   "readout_fidelity": 0.9879,
+   "f0": 0.9972,
+   "f1": 0.9786,
+   "gate1q_fidelity": 0.9982,
+   "t1_us": 39.29,
+   "t2star_us": 4.85,
+   "t2echo_us": 16.54,
+   "freq_mhz": 5320.964
+  },
+  "78": {
+   "e_q": 0.04359999999999997,
+   "readout_fidelity": 0.9564,
+   "f0": 0.9894,
+   "f1": 0.9234,
+   "gate1q_fidelity": 0.9985,
+   "t1_us": 17.66,
+   "t2star_us": 4.7,
+   "t2echo_us": 14.28,
+   "freq_mhz": 4791.576
+  },
+  "79": {
+   "e_q": 0.05030000000000001,
+   "readout_fidelity": 0.9497,
+   "f0": 0.9914,
+   "f1": 0.908,
+   "gate1q_fidelity": 0.9978,
+   "t1_us": 69.05,
+   "t2star_us": 4.16,
+   "t2echo_us": 15.16,
+   "freq_mhz": 4865.005
+  },
+  "80": {
+   "e_q": 0.011700000000000044,
+   "readout_fidelity": 0.9883,
+   "f0": 0.9968,
+   "f1": 0.9798,
+   "gate1q_fidelity": 0.9984,
+   "t1_us": 37.53,
+   "t2star_us": 3.57,
+   "t2echo_us": 10.01,
+   "freq_mhz": 5296.29
+  },
+  "81": {
+   "e_q": 0.0353,
+   "readout_fidelity": 0.9647,
+   "f0": 0.9774,
+   "f1": 0.952,
+   "gate1q_fidelity": 0.998,
+   "t1_us": 51.34,
+   "t2star_us": 8.32,
+   "t2echo_us": 20.61,
+   "freq_mhz": 5086.693
+  },
+  "82": {
+   "e_q": 0.2328,
+   "readout_fidelity": 0.7672,
+   "f0": 0.789,
+   "f1": 0.7454,
+   "gate1q_fidelity": 0.9958,
+   "t1_us": 33.52,
+   "t2star_us": 6.78,
+   "t2echo_us": 11.44,
+   "freq_mhz": 4953.977
+  },
+  "83": {
+   "e_q": 0.09740000000000004,
+   "readout_fidelity": 0.9026,
+   "f0": 0.9048,
+   "f1": 0.9004,
+   "gate1q_fidelity": 0.9975,
+   "t1_us": 38.23,
+   "t2star_us": 2.68,
+   "t2echo_us": 4.7,
+   "freq_mhz": 4892.949
+  },
+  "85": {
+   "e_q": 0.06640000000000001,
+   "readout_fidelity": 0.9336,
+   "f0": 0.9618,
+   "f1": 0.9054,
+   "gate1q_fidelity": 0.9975,
+   "t1_us": 27.93,
+   "t2star_us": 1.91,
+   "t2echo_us": 12.42,
+   "freq_mhz": 5076.104
+  },
+  "87": {
+   "e_q": 0.25660000000000005,
+   "readout_fidelity": 0.7434,
+   "f0": 0.9866,
+   "f1": 0.5002,
+   "gate1q_fidelity": 0.9975,
+   "t1_us": 14.1,
+   "t2star_us": 3.48,
+   "t2echo_us": 11.74,
+   "freq_mhz": 5078.511
+  },
+  "88": {
+   "e_q": 0.014900000000000024,
+   "readout_fidelity": 0.9851,
+   "f0": 0.9908,
+   "f1": 0.9794,
+   "gate1q_fidelity": 0.9985,
+   "t1_us": 24.93,
+   "t2star_us": 4.03,
+   "t2echo_us": 12.25,
+   "freq_mhz": 5244.893
+  },
+  "89": {
+   "e_q": 0.03159999999999996,
+   "readout_fidelity": 0.9684,
+   "f0": 0.9842,
+   "f1": 0.9526,
+   "gate1q_fidelity": 0.9985,
+   "t1_us": 44.26,
+   "t2star_us": 3.89,
+   "t2echo_us": 8.59,
+   "freq_mhz": 5048.655
+  },
+  "90": {
+   "e_q": 0.26149999999999995,
+   "readout_fidelity": 0.7385,
+   "f0": 0.7218,
+   "f1": 0.7552,
+   "gate1q_fidelity": 0.997,
+   "t1_us": 30.66,
+   "t2star_us": 4.29,
+   "t2echo_us": 14.75,
+   "freq_mhz": 5423.824
+  },
+  "91": {
+   "e_q": 0.07569999999999999,
+   "readout_fidelity": 0.9243,
+   "f0": 0.96,
+   "f1": 0.8886,
+   "gate1q_fidelity": 0.9979,
+   "t1_us": 51.86,
+   "t2star_us": 4.45,
+   "t2echo_us": 14.12,
+   "freq_mhz": 5044.757
+  },
+  "92": {
+   "e_q": 0.010199999999999987,
+   "readout_fidelity": 0.9898,
+   "f0": 0.9938,
+   "f1": 0.9858,
+   "gate1q_fidelity": 0.9972,
+   "t1_us": 27.74,
+   "t2star_us": 2.91,
+   "t2echo_us": 4.88,
+   "freq_mhz": 5433.703
+  },
+  "93": {
+   "e_q": 0.024399999999999977,
+   "readout_fidelity": 0.9756,
+   "f0": 0.9872,
+   "f1": 0.964,
+   "gate1q_fidelity": 0.9987,
+   "t1_us": 53.07,
+   "t2star_us": 3.59,
+   "t2echo_us": 12.31,
+   "freq_mhz": 5100.841
+  },
+  "94": {
+   "e_q": 0.038200000000000005,
+   "readout_fidelity": 0.9618,
+   "f0": 0.9948,
+   "f1": 0.9804,
+   "gate1q_fidelity": 0.9781006803068486,
+   "t1_us": 14.91,
+   "t2star_us": 4.37,
+   "t2echo_us": 14.59,
+   "freq_mhz": 5150.0
+  },
+  "95": {
+   "e_q": 0.011425000000000001,
+   "readout_fidelity": 0.988575,
+   "f0": 0.9966,
+   "f1": 0.9884,
+   "gate1q_fidelity": 0.9975904875744703,
+   "t1_us": 24.01,
+   "t2star_us": 4.96,
+   "t2echo_us": 9.47,
+   "freq_mhz": 5386.773
+  },
+  "96": {
+   "e_q": 0.38480000000000003,
+   "readout_fidelity": 0.6152,
+   "f0": 0.9822,
+   "f1": 0.2482,
+   "gate1q_fidelity": 0.9981,
+   "t1_us": 46.47,
+   "t2star_us": 3.67,
+   "t2echo_us": 9.63,
+   "freq_mhz": 5043.85
+  },
+  "98": {
+   "e_q": 0.01629999999999998,
+   "readout_fidelity": 0.9837,
+   "f0": 0.9948,
+   "f1": 0.9726,
+   "gate1q_fidelity": 0.9975,
+   "t1_us": 54.38,
+   "t2star_us": 3.57,
+   "t2echo_us": 10.91,
+   "freq_mhz": 5097.867
+  },
+  "99": {
+   "e_q": 0.2512,
+   "readout_fidelity": 0.7488,
+   "f0": 0.9936,
+   "f1": 0.504,
+   "gate1q_fidelity": 0.9991,
+   "t1_us": 38.56,
+   "t2star_us": 5.55,
+   "t2echo_us": 19.43,
+   "freq_mhz": 5224.959
+  },
+  "100": {
+   "e_q": 0.07940000000000003,
+   "readout_fidelity": 0.9206,
+   "f0": 0.9464,
+   "f1": 0.8948,
+   "gate1q_fidelity": 0.9961,
+   "t1_us": 31.58,
+   "t2star_us": 10.33,
+   "t2echo_us": 29.41,
+   "freq_mhz": 5522.879
+  },
+  "101": {
+   "e_q": 0.011900000000000022,
+   "readout_fidelity": 0.9881,
+   "f0": 0.9918,
+   "f1": 0.9844,
+   "gate1q_fidelity": 0.999,
+   "t1_us": 46.73,
+   "t2star_us": 4.23,
+   "t2echo_us": 12.26,
+   "freq_mhz": 5125.803
+  },
+  "102": {
+   "e_q": 0.005600000000000049,
+   "readout_fidelity": 0.9944,
+   "f0": 0.9964,
+   "f1": 0.9924,
+   "gate1q_fidelity": 0.999,
+   "t1_us": 19.9,
+   "t2star_us": 4.59,
+   "t2echo_us": 16.5,
+   "freq_mhz": 5315.476
+  },
+  "103": {
+   "e_q": 0.122125,
+   "readout_fidelity": 0.877875,
+   "f0": 0.9914,
+   "f1": 0.9316,
+   "gate1q_fidelity": 0.9910262068611158,
+   "t1_us": 29.06,
+   "t2star_us": 7.56,
+   "t2echo_us": 29.95,
+   "freq_mhz": 4924.242
+  },
+  "104": {
+   "e_q": 0.040175,
+   "readout_fidelity": 0.959825,
+   "f0": 0.9872,
+   "f1": 0.9798,
+   "gate1q_fidelity": 0.9846057917120444,
+   "t1_us": 34.07,
+   "t2star_us": 5.45,
+   "t2echo_us": 16.78,
+   "freq_mhz": 5265.8
+  },
+  "105": {
+   "e_q": 0.163325,
+   "readout_fidelity": 0.8366750000000001,
+   "f0": 0.9364,
+   "f1": 0.8662,
+   "gate1q_fidelity": 0.99923923343674,
+   "t1_us": 22.56,
+   "t2star_us": 4.89,
+   "t2echo_us": 14.0,
+   "freq_mhz": 5207.084
+  },
+  "106": {
+   "e_q": 0.04279999999999995,
+   "readout_fidelity": 0.9572,
+   "f0": 0.9622,
+   "f1": 0.9522,
+   "gate1q_fidelity": 0.9989,
+   "t1_us": 19.95,
+   "t2star_us": 4.75,
+   "t2echo_us": 15.81,
+   "freq_mhz": 5388.163
+  },
+  "107": {
+   "e_q": 0.10240000000000005,
+   "readout_fidelity": 0.8976,
+   "f0": 0.9754,
+   "f1": 0.8198,
+   "gate1q_fidelity": 0.9988,
+   "t1_us": 16.62,
+   "t2star_us": 3.56,
+   "t2echo_us": 15.33,
+   "freq_mhz": 5303.895
+  },
+  "108": {
+   "e_q": 0.1149,
+   "readout_fidelity": 0.8851,
+   "f0": 0.9336,
+   "f1": 0.8366,
+   "gate1q_fidelity": 0.9981,
+   "t1_us": 44.41,
+   "t2star_us": 4.2,
+   "t2echo_us": 15.91,
+   "freq_mhz": 4988.672
+  },
+  "109": {
+   "e_q": 0.1291,
+   "readout_fidelity": 0.8709,
+   "f0": 0.8738,
+   "f1": 0.868,
+   "gate1q_fidelity": 0.9983,
+   "t1_us": 38.5,
+   "t2star_us": 4.73,
+   "t2echo_us": 15.65,
+   "freq_mhz": 5146.794
+  },
+  "110": {
+   "e_q": 0.016000000000000014,
+   "readout_fidelity": 0.984,
+   "f0": 0.9866,
+   "f1": 0.9814,
+   "gate1q_fidelity": 0.9988,
+   "t1_us": 29.63,
+   "t2star_us": 3.91,
+   "t2echo_us": 14.95,
+   "freq_mhz": 5022.799
+  },
+  "111": {
+   "e_q": 0.04710000000000003,
+   "readout_fidelity": 0.9529,
+   "f0": 0.9616,
+   "f1": 0.9442,
+   "gate1q_fidelity": 0.9995,
+   "t1_us": 42.42,
+   "t2star_us": 10.41,
+   "t2echo_us": 27.97,
+   "freq_mhz": 4883.984
+  },
+  "112": {
+   "e_q": 0.029375,
+   "readout_fidelity": 0.970625,
+   "f0": 0.9728,
+   "f1": 0.9572,
+   "gate1q_fidelity": 0.9968544455435867,
+   "t1_us": 32.69,
+   "t2star_us": 4.43,
+   "t2echo_us": 10.31,
+   "freq_mhz": 4961.644
+  },
+  "113": {
+   "e_q": 0.0457,
+   "readout_fidelity": 0.9543,
+   "f0": 0.9942,
+   "f1": 0.9044,
+   "gate1q_fidelity": 0.9916792743998492,
+   "t1_us": 21.08,
+   "t2star_us": 4.88,
+   "t2echo_us": 14.16,
+   "freq_mhz": 5482.9
+  },
+  "114": {
+   "e_q": 0.046675,
+   "readout_fidelity": 0.953325,
+   "f0": 0.9914,
+   "f1": 0.9504,
+   "gate1q_fidelity": 0.9978010923283748,
+   "t1_us": 20.0,
+   "t2star_us": 3.18,
+   "t2echo_us": 6.91,
+   "freq_mhz": 5314.18
+  },
+  "115": {
+   "e_q": 0.21389999999999998,
+   "readout_fidelity": 0.7861,
+   "f0": 0.9028,
+   "f1": 0.6694,
+   "gate1q_fidelity": 0.9993,
+   "t1_us": 63.45,
+   "t2star_us": 4.09,
+   "t2echo_us": 8.07,
+   "freq_mhz": 4910.743
+  },
+  "116": {
+   "e_q": 0.020299999999999985,
+   "readout_fidelity": 0.9797,
+   "f0": 0.9914,
+   "f1": 0.968,
+   "gate1q_fidelity": 0.999,
+   "t1_us": 33.48,
+   "t2star_us": 3.18,
+   "t2echo_us": 16.13,
+   "freq_mhz": 5199.833
+  },
+  "117": {
+   "e_q": 0.1361,
+   "readout_fidelity": 0.8639,
+   "f0": 0.8666,
+   "f1": 0.8612,
+   "gate1q_fidelity": 0.9989,
+   "t1_us": 24.9,
+   "t2star_us": 4.13,
+   "t2echo_us": 14.2,
+   "freq_mhz": 5299.867
+  },
+  "118": {
+   "e_q": 0.07609999999999995,
+   "readout_fidelity": 0.9239,
+   "f0": 0.9468,
+   "f1": 0.901,
+   "gate1q_fidelity": 0.9992,
+   "t1_us": 57.96,
+   "t2star_us": 2.44,
+   "t2echo_us": 8.54,
+   "freq_mhz": 5073.566
+  },
+  "119": {
+   "e_q": 0.010000000000000009,
+   "readout_fidelity": 0.99,
+   "f0": 0.9942,
+   "f1": 0.9858,
+   "gate1q_fidelity": 0.9986,
+   "t1_us": 14.37,
+   "t2star_us": 3.76,
+   "t2echo_us": 9.71,
+   "freq_mhz": 5454.196
+  },
+  "120": {
+   "e_q": 0.05830000000000002,
+   "readout_fidelity": 0.9417,
+   "f0": 0.945,
+   "f1": 0.9384,
+   "gate1q_fidelity": 0.9993,
+   "t1_us": 37.61,
+   "t2star_us": 8.35,
+   "t2echo_us": 23.7,
+   "freq_mhz": 4757.629
+  },
+  "121": {
+   "e_q": 0.06369999999999998,
+   "readout_fidelity": 0.9363,
+   "f0": 0.9332,
+   "f1": 0.9394,
+   "gate1q_fidelity": 0.999,
+   "t1_us": 51.43,
+   "t2star_us": 9.94,
+   "t2echo_us": 30.08,
+   "freq_mhz": 4922.335
+  },
+  "122": {
+   "e_q": 0.239775,
+   "readout_fidelity": 0.760225,
+   "f0": 0.9516,
+   "f1": 0.9278,
+   "gate1q_fidelity": 0.9998363629538495,
+   "t1_us": 36.25,
+   "t2star_us": 6.76,
+   "t2echo_us": 28.67,
+   "freq_mhz": 4854.238
+  },
+  "123": {
+   "e_q": 0.075575,
+   "readout_fidelity": 0.924425,
+   "f0": 0.9732,
+   "f1": 0.9686,
+   "gate1q_fidelity": 0.9900072537024014,
+   "t1_us": 47.91,
+   "t2star_us": 4.76,
+   "t2echo_us": 13.32,
+   "freq_mhz": 5020.0
+  },
+  "124": {
+   "e_q": 0.057499999999999996,
+   "readout_fidelity": 0.9425,
+   "f0": 0.9592,
+   "f1": 0.9258,
+   "gate1q_fidelity": 0.9986,
+   "t1_us": 38.92,
+   "t2star_us": 5.5,
+   "t2echo_us": 15.85,
+   "freq_mhz": 5101.637
+  },
+  "125": {
+   "e_q": 0.14749999999999996,
+   "readout_fidelity": 0.8525,
+   "f0": 0.8476,
+   "f1": 0.8574,
+   "gate1q_fidelity": 0.999,
+   "t1_us": 40.38,
+   "t2star_us": 2.85,
+   "t2echo_us": 6.69,
+   "freq_mhz": 5285.288
+  },
+  "126": {
+   "e_q": 0.13749999999999996,
+   "readout_fidelity": 0.8625,
+   "f0": 0.9018,
+   "f1": 0.8232,
+   "gate1q_fidelity": 0.9984,
+   "t1_us": 28.97,
+   "t2star_us": 3.35,
+   "t2echo_us": 7.91,
+   "freq_mhz": 5432.13
+  },
+  "127": {
+   "e_q": 0.11019999999999996,
+   "readout_fidelity": 0.8898,
+   "f0": 0.8896,
+   "f1": 0.89,
+   "gate1q_fidelity": 0.9986,
+   "t1_us": 36.03,
+   "t2star_us": 3.66,
+   "t2echo_us": 6.95,
+   "freq_mhz": 5480.182
+  },
+  "128": {
+   "e_q": 0.007499999999999951,
+   "readout_fidelity": 0.9925,
+   "f0": 0.9958,
+   "f1": 0.9892,
+   "gate1q_fidelity": 0.9986,
+   "t1_us": 36.53,
+   "t2star_us": 4.88,
+   "t2echo_us": 18.89,
+   "freq_mhz": 5510.648
+  },
+  "129": {
+   "e_q": 0.049000000000000044,
+   "readout_fidelity": 0.951,
+   "f0": 0.9502,
+   "f1": 0.9518,
+   "gate1q_fidelity": 0.9991,
+   "t1_us": 40.69,
+   "t2star_us": 6.28,
+   "t2echo_us": 19.45,
+   "freq_mhz": 4998.246
+  },
+  "130": {
+   "e_q": 0.03590000000000004,
+   "readout_fidelity": 0.9641,
+   "f0": 0.969,
+   "f1": 0.9592,
+   "gate1q_fidelity": 0.9992,
+   "t1_us": 26.45,
+   "t2star_us": 4.47,
+   "t2echo_us": 14.55,
+   "freq_mhz": 5050.253
+  },
+  "131": {
+   "e_q": 0.015574999999999999,
+   "readout_fidelity": 0.984425,
+   "f0": 0.9876,
+   "f1": 0.9648,
+   "gate1q_fidelity": 0.9651595780917954,
+   "t1_us": 67.02,
+   "t2star_us": 3.88,
+   "t2echo_us": 13.64,
+   "freq_mhz": 5163.602
+  },
+  "132": {
+   "e_q": 0.1283,
+   "readout_fidelity": 0.8717,
+   "f0": 0.9936,
+   "f1": 0.8184,
+   "gate1q_fidelity": 0.9886581911528819,
+   "t1_us": 7.43,
+   "t2star_us": 2.37,
+   "t2echo_us": 6.0,
+   "freq_mhz": 5173.588
+  },
+  "133": {
+   "e_q": 0.07620000000000005,
+   "readout_fidelity": 0.9238,
+   "f0": 0.9764,
+   "f1": 0.8712,
+   "gate1q_fidelity": 0.9989,
+   "t1_us": 22.39,
+   "t2star_us": 2.54,
+   "t2echo_us": 4.6,
+   "freq_mhz": 5147.655
+  },
+  "134": {
+   "e_q": 0.02190000000000003,
+   "readout_fidelity": 0.9781,
+   "f0": 0.997,
+   "f1": 0.9592,
+   "gate1q_fidelity": 0.9989,
+   "t1_us": 23.33,
+   "t2star_us": 5.55,
+   "t2echo_us": 17.1,
+   "freq_mhz": 5375.861
+  },
+  "135": {
+   "e_q": 0.09240000000000004,
+   "readout_fidelity": 0.9076,
+   "f0": 0.9914,
+   "f1": 0.8238,
+   "gate1q_fidelity": 0.9952,
+   "t1_us": 10.57,
+   "t2star_us": 3.47,
+   "t2echo_us": 9.75,
+   "freq_mhz": 5254.219
+  },
+  "136": {
+   "e_q": 0.2742,
+   "readout_fidelity": 0.7258,
+   "f0": 0.9558,
+   "f1": 0.4958,
+   "gate1q_fidelity": 0.9989,
+   "t1_us": 37.66,
+   "t2star_us": 5.19,
+   "t2echo_us": 10.51,
+   "freq_mhz": 5098.948
+  },
+  "137": {
+   "e_q": 0.1925,
+   "readout_fidelity": 0.8075,
+   "f0": 0.9198,
+   "f1": 0.6952,
+   "gate1q_fidelity": 0.9983,
+   "t1_us": 22.85,
+   "t2star_us": 3.43,
+   "t2echo_us": 10.17,
+   "freq_mhz": 5187.148
+  },
+  "138": {
+   "e_q": 0.01749999999999996,
+   "readout_fidelity": 0.9825,
+   "f0": 0.9872,
+   "f1": 0.9778,
+   "gate1q_fidelity": 0.9989,
+   "t1_us": 30.11,
+   "t2star_us": 4.69,
+   "t2echo_us": 12.5,
+   "freq_mhz": 5403.581
+  },
+  "139": {
+   "e_q": 0.01970000000000005,
+   "readout_fidelity": 0.9803,
+   "f0": 0.9866,
+   "f1": 0.974,
+   "gate1q_fidelity": 0.9991,
+   "t1_us": 15.89,
+   "t2star_us": 6.25,
+   "t2echo_us": 16.45,
+   "freq_mhz": 5529.902
+  },
+  "140": {
+   "e_q": 0.0605,
+   "readout_fidelity": 0.9395,
+   "f0": 0.945,
+   "f1": 0.934,
+   "gate1q_fidelity": 0.999,
+   "t1_us": 31.07,
+   "t2star_us": 5.25,
+   "t2echo_us": 15.43,
+   "freq_mhz": 4964.59
+  },
+  "141": {
+   "e_q": 0.036425,
+   "readout_fidelity": 0.963575,
+   "f0": 0.993,
+   "f1": 0.9634,
+   "gate1q_fidelity": 0.9975979716197829,
+   "t1_us": 36.49,
+   "t2star_us": 5.45,
+   "t2echo_us": 20.63,
+   "freq_mhz": 5398.018
+  },
+  "142": {
+   "e_q": 0.04190000000000005,
+   "readout_fidelity": 0.9581,
+   "f0": 0.9764,
+   "f1": 0.9398,
+   "gate1q_fidelity": 0.9978,
+   "t1_us": 29.5,
+   "t2star_us": 5.02,
+   "t2echo_us": 17.25,
+   "freq_mhz": 5328.759
+  },
+  "143": {
+   "e_q": 0.08609999999999995,
+   "readout_fidelity": 0.9139,
+   "f0": 0.9568,
+   "f1": 0.871,
+   "gate1q_fidelity": 0.9977,
+   "t1_us": 39.54,
+   "t2star_us": 3.93,
+   "t2echo_us": 11.69,
+   "freq_mhz": 5195.963
+  },
+  "144": {
+   "e_q": 0.1562,
+   "readout_fidelity": 0.8438,
+   "f0": 0.8948,
+   "f1": 0.7928,
+   "gate1q_fidelity": 0.9989,
+   "t1_us": 64.29,
+   "t2star_us": 4.52,
+   "t2echo_us": 17.76,
+   "freq_mhz": 5335.414
+  },
+  "146": {
+   "e_q": 0.13449999999999995,
+   "readout_fidelity": 0.8655,
+   "f0": 0.9092,
+   "f1": 0.8218,
+   "gate1q_fidelity": 0.999,
+   "t1_us": 24.9,
+   "t2star_us": 6.43,
+   "t2echo_us": 17.24,
+   "freq_mhz": 5120.004
+  },
+  "147": {
+   "e_q": 0.08009999999999995,
+   "readout_fidelity": 0.9199,
+   "f0": 0.9586,
+   "f1": 0.8812,
+   "gate1q_fidelity": 0.9949,
+   "t1_us": 12.18,
+   "t2star_us": 5.11,
+   "t2echo_us": 6.14,
+   "freq_mhz": 5249.913
+  },
+  "148": {
+   "e_q": 0.08899999999999997,
+   "readout_fidelity": 0.911,
+   "f0": 0.9826,
+   "f1": 0.8394,
+   "gate1q_fidelity": 0.9988,
+   "t1_us": 33.53,
+   "t2star_us": 3.3,
+   "t2echo_us": 14.46,
+   "freq_mhz": 5398.473
+  },
+  "149": {
+   "e_q": 0.05510000000000004,
+   "readout_fidelity": 0.9449,
+   "f0": 0.9676,
+   "f1": 0.9222,
+   "gate1q_fidelity": 0.9988,
+   "t1_us": 27.69,
+   "t2star_us": 4.22,
+   "t2echo_us": 18.06,
+   "freq_mhz": 4998.753
+  },
+  "150": {
+   "e_q": 0.02510000000000001,
+   "readout_fidelity": 0.9749,
+   "f0": 0.9854,
+   "f1": 0.9644,
+   "gate1q_fidelity": 0.9983,
+   "t1_us": 41.33,
+   "t2star_us": 2.38,
+   "t2echo_us": 14.59,
+   "freq_mhz": 5289.949
+  },
+  "151": {
+   "e_q": 0.15159999999999996,
+   "readout_fidelity": 0.8484,
+   "f0": 0.8754,
+   "f1": 0.8214,
+   "gate1q_fidelity": 0.9991,
+   "t1_us": 75.68,
+   "t2star_us": 5.14,
+   "t2echo_us": 26.96,
+   "freq_mhz": 4863.467
+  },
+  "152": {
+   "e_q": 0.04920000000000002,
+   "readout_fidelity": 0.9508,
+   "f0": 0.9678,
+   "f1": 0.9338,
+   "gate1q_fidelity": 0.9985,
+   "t1_us": 22.83,
+   "t2star_us": 3.75,
+   "t2echo_us": 13.19,
+   "freq_mhz": 5247.935
+  },
+  "154": {
+   "e_q": 0.44910000000000005,
+   "readout_fidelity": 0.5509,
+   "f0": 0.5388,
+   "f1": 0.563,
+   "gate1q_fidelity": 0.9981,
+   "t1_us": 31.34,
+   "t2star_us": 3.87,
+   "t2echo_us": 14.12,
+   "freq_mhz": 5238.865
+  },
+  "155": {
+   "e_q": 0.08209999999999995,
+   "readout_fidelity": 0.9179,
+   "f0": 0.9782,
+   "f1": 0.8576,
+   "gate1q_fidelity": 0.9991,
+   "t1_us": 35.17,
+   "t2star_us": 5.27,
+   "t2echo_us": 16.0,
+   "freq_mhz": 5078.016
+  },
+  "157": {
+   "e_q": 0.01539999999999997,
+   "readout_fidelity": 0.9846,
+   "f0": 0.9958,
+   "f1": 0.9734,
+   "gate1q_fidelity": 0.9993,
+   "t1_us": 23.2,
+   "t2star_us": 6.56,
+   "t2echo_us": 25.9,
+   "freq_mhz": 4999.898
+  },
+  "158": {
+   "e_q": 0.3194,
+   "readout_fidelity": 0.6806,
+   "f0": 0.9926,
+   "f1": 0.3686,
+   "gate1q_fidelity": 0.999,
+   "t1_us": 15.1,
+   "t2star_us": 4.03,
+   "t2echo_us": 15.64,
+   "freq_mhz": 5211.789
+  },
+  "159": {
+   "e_q": 0.19989999999999997,
+   "readout_fidelity": 0.8001,
+   "f0": 0.7592,
+   "f1": 0.841,
+   "gate1q_fidelity": 0.999,
+   "t1_us": 63.95,
+   "t2star_us": 2.75,
+   "t2echo_us": 10.73,
+   "freq_mhz": 5048.893
+  },
+  "160": {
+   "e_q": 0.031000000000000028,
+   "readout_fidelity": 0.969,
+   "f0": 0.987,
+   "f1": 0.951,
+   "gate1q_fidelity": 0.9992,
+   "t1_us": 24.63,
+   "t2star_us": 9.41,
+   "t2echo_us": 18.75,
+   "freq_mhz": 5477.232
+  },
+  "161": {
+   "e_q": 0.3349,
+   "readout_fidelity": 0.6651,
+   "f0": 0.9482,
+   "f1": 0.382,
+   "gate1q_fidelity": 0.9993,
+   "t1_us": 36.12,
+   "t2star_us": 4.85,
+   "t2echo_us": 16.31,
+   "freq_mhz": 4942.722
+  },
+  "162": {
+   "e_q": 0.45499999999999996,
+   "readout_fidelity": 0.545,
+   "f0": 0.7198,
+   "f1": 0.3702,
+   "gate1q_fidelity": 0.9986,
+   "t1_us": 30.6,
+   "t2star_us": 9.84,
+   "t2echo_us": 14.17,
+   "freq_mhz": 5184.151
+  },
+  "163": {
+   "e_q": 0.2589,
+   "readout_fidelity": 0.7411,
+   "f0": 0.909,
+   "f1": 0.5732,
+   "gate1q_fidelity": 0.9986,
+   "t1_us": 38.9,
+   "t2star_us": 5.99,
+   "t2echo_us": 15.94,
+   "freq_mhz": 5205.757
+  },
+  "164": {
+   "e_q": 0.10740000000000005,
+   "readout_fidelity": 0.8926,
+   "f0": 0.9548,
+   "f1": 0.8304,
+   "gate1q_fidelity": 0.9988,
+   "t1_us": 23.08,
+   "t2star_us": 5.31,
+   "t2echo_us": 21.34,
+   "freq_mhz": 5182.024
+  },
+  "165": {
+   "e_q": 0.08399999999999996,
+   "readout_fidelity": 0.916,
+   "f0": 0.975,
+   "f1": 0.857,
+   "gate1q_fidelity": 0.9989,
+   "t1_us": 24.82,
+   "t2star_us": 4.05,
+   "t2echo_us": 14.69,
+   "freq_mhz": 5106.866
+  },
+  "166": {
+   "e_q": 0.5012,
+   "readout_fidelity": 0.4988,
+   "f0": 0.6674,
+   "f1": 0.3302,
+   "gate1q_fidelity": 0.9984,
+   "t1_us": 31.97,
+   "t2star_us": 2.96,
+   "t2echo_us": 11.8,
+   "freq_mhz": 5140.924
+  },
+  "168": {
+   "e_q": 0.49550000000000005,
+   "readout_fidelity": 0.5045,
+   "f0": 0.6042,
+   "f1": 0.4048,
+   "gate1q_fidelity": 0.9979,
+   "t1_us": 28.94,
+   "t2star_us": 3.77,
+   "t2echo_us": 12.38,
+   "freq_mhz": 5106.448
+  },
+  "169": {
+   "e_q": 0.476,
+   "readout_fidelity": 0.524,
+   "f0": 0.9904,
+   "f1": 0.0576,
+   "gate1q_fidelity": 0.9989,
+   "t1_us": 24.67,
+   "t2star_us": 3.1,
+   "t2echo_us": 11.89,
+   "freq_mhz": 5050.313
+  },
+  "170": {
+   "e_q": 0.49839999999999995,
+   "readout_fidelity": 0.5016,
+   "f0": 0.9916,
+   "f1": 0.0116,
+   "gate1q_fidelity": 0.9989,
+   "t1_us": 17.91,
+   "t2star_us": 3.84,
+   "t2echo_us": 12.41,
+   "freq_mhz": 5028.35
+  },
+  "171": {
+   "e_q": 0.5245,
+   "readout_fidelity": 0.4755,
+   "f0": 0.68,
+   "f1": 0.271,
+   "gate1q_fidelity": 0.9985,
+   "t1_us": 17.92,
+   "t2star_us": 4.66,
+   "t2echo_us": 16.17,
+   "freq_mhz": 5328.132
+  },
+  "172": {
+   "e_q": 0.383,
+   "readout_fidelity": 0.617,
+   "f0": 0.9286,
+   "f1": 0.3054,
+   "gate1q_fidelity": 0.9988,
+   "t1_us": 34.22,
+   "t2star_us": 4.05,
+   "t2echo_us": 14.3,
+   "freq_mhz": 5456.4
+  },
+  "173": {
+   "e_q": 0.5166999999999999,
+   "readout_fidelity": 0.4833,
+   "f0": 0.7612,
+   "f1": 0.2054,
+   "gate1q_fidelity": 0.999,
+   "t1_us": 28.61,
+   "t2star_us": 5.05,
+   "t2echo_us": 14.74,
+   "freq_mhz": 5128.284
+  },
+  "174": {
+   "e_q": 0.3154,
+   "readout_fidelity": 0.6846,
+   "f0": 0.9626,
+   "f1": 0.4066,
+   "gate1q_fidelity": 0.9987,
+   "t1_us": 25.14,
+   "t2star_us": 4.88,
+   "t2echo_us": 15.05,
+   "freq_mhz": 5321.033
+  },
+  "175": {
+   "e_q": 0.47219999999999995,
+   "readout_fidelity": 0.5278,
+   "f0": 0.907,
+   "f1": 0.1486,
+   "gate1q_fidelity": 0.9979,
+   "t1_us": 50.58,
+   "t2star_us": 4.64,
+   "t2echo_us": 13.46,
+   "freq_mhz": 5299.125
+  },
+  "176": {
+   "e_q": 0.4911,
+   "readout_fidelity": 0.5089,
+   "f0": 0.8978,
+   "f1": 0.12,
+   "gate1q_fidelity": 0.9993,
+   "t1_us": 54.72,
+   "t2star_us": 4.48,
+   "t2echo_us": 22.61,
+   "freq_mhz": 5285.412
+  },
+  "177": {
+   "e_q": 0.48740000000000006,
+   "readout_fidelity": 0.5126,
+   "f0": 0.856,
+   "f1": 0.1692,
+   "gate1q_fidelity": 0.9992,
+   "t1_us": 36.02,
+   "t2star_us": 4.31,
+   "t2echo_us": 12.37,
+   "freq_mhz": 5228.798
+  },
+  "178": {
+   "e_q": 0.49770000000000003,
+   "readout_fidelity": 0.5023,
+   "f0": 0.8224,
+   "f1": 0.1822,
+   "gate1q_fidelity": 0.9989,
+   "t1_us": 22.31,
+   "t2star_us": 4.8,
+   "t2echo_us": 15.31,
+   "freq_mhz": 4909.547
+  },
+  "179": {
+   "e_q": 0.48540000000000005,
+   "readout_fidelity": 0.5146,
+   "f0": 0.624,
+   "f1": 0.4052,
+   "gate1q_fidelity": 0.9989,
+   "t1_us": 59.92,
+   "t2star_us": 3.91,
+   "t2echo_us": 12.37,
+   "freq_mhz": 5121.668
+  }
+ },
+ "edges": {
+  "0-9": {
+   "fidelity": 0.9792
+  },
+  "0-10": {
+   "fidelity": 0.9551
+  },
+  "1-10": {
+   "fidelity": 0.9787
+  },
+  "1-11": {
+   "fidelity": 0.9789
+  },
+  "2-11": {
+   "fidelity": 0.9913
+  },
+  "3-13": {
+   "fidelity": 0.9925
+  },
+  "4-13": {
+   "fidelity": 0.9878
+  },
+  "4-14": {
+   "fidelity": 0.9607
+  },
+  "6-16": {
+   "fidelity": 0.9785
+  },
+  "7-16": {
+   "fidelity": 0.9728
+  },
+  "7-17": {
+   "fidelity": 0.979
+  },
+  "8-17": {
+   "fidelity": 0.9894
+  },
+  "9-18": {
+   "fidelity": 0.9627
+  },
+  "10-19": {
+   "fidelity": 0.9797
+  },
+  "11-20": {
+   "fidelity": 0.9817
+  },
+  "13-22": {
+   "fidelity": 0.9565
+  },
+  "14-23": {
+   "fidelity": 0.985
+  },
+  "16-25": {
+   "fidelity": 0.969
+  },
+  "17-26": {
+   "fidelity": 0.9808
+  },
+  "18-27": {
+   "fidelity": 0.9795
+  },
+  "19-29": {
+   "fidelity": 0.9758
+  },
+  "20-29": {
+   "fidelity": 0.9805
+  },
+  "22-32": {
+   "fidelity": 0.971
+  },
+  "23-32": {
+   "fidelity": 0.9787
+  },
+  "23-33": {
+   "fidelity": 0.9819
+  },
+  "25-34": {
+   "fidelity": 0.9748
+  },
+  "25-35": {
+   "fidelity": 0.9866
+  },
+  "26-35": {
+   "fidelity": 0.9751
+  },
+  "29-38": {
+   "fidelity": 0.9616
+  },
+  "32-41": {
+   "fidelity": 0.9794
+  },
+  "33-42": {
+   "fidelity": 0.9705
+  },
+  "35-44": {
+   "fidelity": 0.9913
+  },
+  "36-45": {
+   "fidelity": 0.9744
+  },
+  "36-46": {
+   "fidelity": 0.9574
+  },
+  "37-46": {
+   "fidelity": 0.9756
+  },
+  "37-47": {
+   "fidelity": 0.9997
+  },
+  "38-47": {
+   "fidelity": 0.9846
+  },
+  "38-48": {
+   "fidelity": 0.9903
+  },
+  "39-49": {
+   "fidelity": 0.9827
+  },
+  "40-49": {
+   "fidelity": 0.9984
+  },
+  "40-50": {
+   "fidelity": 0.9663
+  },
+  "41-51": {
+   "fidelity": 0.9834
+  },
+  "42-51": {
+   "fidelity": 0.9875
+  },
+  "43-52": {
+   "fidelity": 0.9552
+  },
+  "47-56": {
+   "fidelity": 0.973
+  },
+  "49-58": {
+   "fidelity": 0.977
+  },
+  "50-59": {
+   "fidelity": 0.9904
+  },
+  "51-60": {
+   "fidelity": 0.9652
+  },
+  "52-61": {
+   "fidelity": 0.9787
+  },
+  "54-63": {
+   "fidelity": 0.9853
+  },
+  "54-64": {
+   "fidelity": 0.9828
+  },
+  "55-64": {
+   "fidelity": 0.97
+  },
+  "56-65": {
+   "fidelity": 0.9855
+  },
+  "56-66": {
+   "fidelity": 0.9854
+  },
+  "57-66": {
+   "fidelity": 0.9712
+  },
+  "58-68": {
+   "fidelity": 0.9631
+  },
+  "59-68": {
+   "fidelity": 0.9797
+  },
+  "59-69": {
+   "fidelity": 0.9777
+  },
+  "60-69": {
+   "fidelity": 0.98
+  },
+  "61-70": {
+   "fidelity": 0.9974
+  },
+  "61-71": {
+   "fidelity": 0.9877
+  },
+  "62-71": {
+   "fidelity": 0.9797
+  },
+  "63-72": {
+   "fidelity": 0.9582
+  },
+  "64-73": {
+   "fidelity": 0.9855
+  },
+  "66-75": {
+   "fidelity": 0.9597
+  },
+  "68-77": {
+   "fidelity": 0.979
+  },
+  "70-79": {
+   "fidelity": 0.9654
+  },
+  "71-80": {
+   "fidelity": 0.9772
+  },
+  "72-81": {
+   "fidelity": 0.9801
+  },
+  "73-82": {
+   "fidelity": 0.9826
+  },
+  "73-83": {
+   "fidelity": 0.9683
+  },
+  "74-83": {
+   "fidelity": 0.9641
+  },
+  "75-85": {
+   "fidelity": 0.9829
+  },
+  "77-87": {
+   "fidelity": 0.9693
+  },
+  "79-88": {
+   "fidelity": 0.9816
+  },
+  "79-89": {
+   "fidelity": 0.9904
+  },
+  "80-89": {
+   "fidelity": 0.986
+  },
+  "81-90": {
+   "fidelity": 0.9654
+  },
+  "82-91": {
+   "fidelity": 0.9764
+  },
+  "83-92": {
+   "fidelity": 0.9689
+  },
+  "85-94": {
+   "fidelity": 0.9753
+  },
+  "87-96": {
+   "fidelity": 0.9806
+  },
+  "90-99": {
+   "fidelity": 0.9928
+  },
+  "91-100": {
+   "fidelity": 0.9805
+  },
+  "91-101": {
+   "fidelity": 0.956
+  },
+  "92-101": {
+   "fidelity": 0.9763
+  },
+  "92-102": {
+   "fidelity": 0.9957
+  },
+  "93-102": {
+   "fidelity": 0.9869
+  },
+  "93-103": {
+   "fidelity": 0.9896
+  },
+  "94-103": {
+   "fidelity": 0.9610890508146778
+  },
+  "94-104": {
+   "fidelity": 1.0
+  },
+  "95-104": {
+   "fidelity": 0.9991764490899772
+  },
+  "95-105": {
+   "fidelity": 0.9568799925546452
+  },
+  "96-105": {
+   "fidelity": 0.9856
+  },
+  "96-106": {
+   "fidelity": 0.9857
+  },
+  "98-107": {
+   "fidelity": 0.9749
+  },
+  "99-108": {
+   "fidelity": 0.9878
+  },
+  "100-109": {
+   "fidelity": 0.9724
+  },
+  "101-110": {
+   "fidelity": 0.9601
+  },
+  "102-111": {
+   "fidelity": 0.983
+  },
+  "103-112": {
+   "fidelity": 0.9600252524264665
+  },
+  "104-113": {
+   "fidelity": 1.0
+  },
+  "105-114": {
+   "fidelity": 0.9782916761297159
+  },
+  "106-115": {
+   "fidelity": 0.9656
+  },
+  "107-116": {
+   "fidelity": 0.9878
+  },
+  "108-117": {
+   "fidelity": 0.9788
+  },
+  "108-118": {
+   "fidelity": 0.9772
+  },
+  "109-118": {
+   "fidelity": 0.9758
+  },
+  "109-119": {
+   "fidelity": 0.9605
+  },
+  "110-119": {
+   "fidelity": 0.9798
+  },
+  "110-120": {
+   "fidelity": 0.9923
+  },
+  "111-120": {
+   "fidelity": 0.9867
+  },
+  "111-121": {
+   "fidelity": 0.987
+  },
+  "112-121": {
+   "fidelity": 0.9763
+  },
+  "112-122": {
+   "fidelity": 0.9384462774368723
+  },
+  "113-122": {
+   "fidelity": 0.9741211166692316
+  },
+  "113-123": {
+   "fidelity": 0.9583215571112735
+  },
+  "114-123": {
+   "fidelity": 0.9708462032826752
+  },
+  "114-124": {
+   "fidelity": 0.9723
+  },
+  "115-124": {
+   "fidelity": 0.9828
+  },
+  "115-125": {
+   "fidelity": 0.9765
+  },
+  "116-125": {
+   "fidelity": 0.958
+  },
+  "117-126": {
+   "fidelity": 0.998
+  },
+  "118-127": {
+   "fidelity": 0.9781
+  },
+  "119-128": {
+   "fidelity": 0.9915
+  },
+  "120-129": {
+   "fidelity": 0.996
+  },
+  "122-131": {
+   "fidelity": 0.9623991668691078
+  },
+  "123-132": {
+   "fidelity": 0.9338493999394026
+  },
+  "124-133": {
+   "fidelity": 0.97
+  },
+  "125-134": {
+   "fidelity": 0.9648
+  },
+  "127-136": {
+   "fidelity": 0.9827
+  },
+  "128-137": {
+   "fidelity": 0.9546
+  },
+  "128-138": {
+   "fidelity": 0.9906
+  },
+  "129-138": {
+   "fidelity": 0.9942
+  },
+  "129-139": {
+   "fidelity": 0.9897
+  },
+  "130-139": {
+   "fidelity": 0.9875
+  },
+  "131-140": {
+   "fidelity": 0.9671
+  },
+  "131-141": {
+   "fidelity": 1.0
+  },
+  "132-141": {
+   "fidelity": 0.9448775182266546
+  },
+  "132-142": {
+   "fidelity": 0.977
+  },
+  "133-142": {
+   "fidelity": 0.9835
+  },
+  "133-143": {
+   "fidelity": 0.9691
+  },
+  "135-144": {
+   "fidelity": 0.981
+  },
+  "138-147": {
+   "fidelity": 0.9929
+  },
+  "139-148": {
+   "fidelity": 0.9806
+  },
+  "140-149": {
+   "fidelity": 0.9537
+  },
+  "141-150": {
+   "fidelity": 0.9783
+  },
+  "142-151": {
+   "fidelity": 0.9771
+  },
+  "143-152": {
+   "fidelity": 0.9657
+  },
+  "146-155": {
+   "fidelity": 0.9549
+  },
+  "147-157": {
+   "fidelity": 0.9774
+  },
+  "149-158": {
+   "fidelity": 0.9798
+  },
+  "149-159": {
+   "fidelity": 0.9789
+  },
+  "150-159": {
+   "fidelity": 0.9705
+  },
+  "150-160": {
+   "fidelity": 0.9946
+  },
+  "155-164": {
+   "fidelity": 0.9844
+  },
+  "157-166": {
+   "fidelity": 0.9837
+  },
+  "163-173": {
+   "fidelity": 0.9639
+  },
+  "164-173": {
+   "fidelity": 0.9733
+  },
+  "164-174": {
+   "fidelity": 0.9846
+  },
+  "165-174": {
+   "fidelity": 0.9641
+  },
+  "165-175": {
+   "fidelity": 0.991
+  },
+  "166-175": {
+   "fidelity": 0.9752
+  },
+  "166-176": {
+   "fidelity": 0.987
+  },
+  "168-178": {
+   "fidelity": 0.9598
+  },
+  "169-178": {
+   "fidelity": 0.9829
+  },
+  "169-179": {
+   "fidelity": 0.9989
+  },
+  "170-179": {
+   "fidelity": 0.9765
+  }
+ },
+ "summary": {
+  "n_qubits": 166,
+  "n_edges": 168,
+  "avg_eq": 0.1285777108433735,
+  "min_eq": 0.005600000000000049,
+  "max_eq": 0.5245
+ },
+ "note": "实测表 v2（simultaneous 单门口径 + 负值边截0）；生成 2026-10-10 05:43 UTC",
+ "provenance": {
+  "generated_at": "2026-10-10T05:43:02.060508+00:00",
+  "eps1_source": {
+   "94": "sim(2)",
+   "95": "sim(2)",
+   "103": "sim(2)",
+   "104": "sim(3)",
+   "105": "sim(2)",
+   "112": "sim(2)",
+   "113": "sim(3)",
+   "114": "sim(2)",
+   "122": "sim(3)",
+   "123": "sim(3)",
+   "131": "sim(2)",
+   "132": "sim(2)",
+   "141": "sim(2)"
+  },
+  "neg_eps2_edges": {
+   "94-104": -0.01698430181356151,
+   "104-113": -0.0024045669136326317
+  },
+  "missing_edges_official_fallback": [],
+  "readout_task_ids": [
+   "uqt_13cb5a5174d44b0bac3b2e57de8ca2a4"
+  ],
+  "single_task_ids": [
+   "uqt_98adc4b805f7430491f1d5e5257eb9e8",
+   "uqt_97891b9baf10440da6924c98d2a1db5c",
+   "uqt_990f8389234f401a953301f69a7ef383",
+   "uqt_e5f52a12edb24af182e96729021447b9",
+   "uqt_0d001ca7f0b641cc9c1f8a42b382522d",
+   "uqt_2d7f48bea5c342468d5c1dea77474e90",
+   "uqt_3080630bca834fefa690661f0411878e",
+   "uqt_829e841c37234ad08d3ed70e8d4a7998",
+   "uqt_f5c681f0204d4c95b8d7ec57e006d5fb",
+   "uqt_53d95246bede4b92b69150e7870eba45",
+   "uqt_03b03f4264724239be41abeb73e3e308",
+   "uqt_0b75e29c8c6241888213835b3f8e9ab5",
+   "uqt_138cf6b52bfb4fc9bb3112d5970aa30f"
+  ],
+  "cz_task_ids": [
+   "uqt_91a6255756e14dcf8cc8809b01c0c8b1",
+   "uqt_cbcc853b5eb84cf8a54646e3c1f44538",
+   "uqt_a31d4cee18a84943b71aa78f11a0f45d",
+   "uqt_a0b1d54482c344b2bafe1d696bd0bc28",
+   "uqt_7315d9de1dd440e29c9dd3513750aafe",
+   "uqt_68d0d3024b564aa8a22e807937f82ad7",
+   "uqt_a72fadd0bfc04c8cabc1dcf2a87c0640",
+   "uqt_d301574df9d64979b69e66196c9c2f91",
+   "uqt_07773d69eb4e41158ccdb78092f036f1",
+   "uqt_a3b547637b0742f69722b2fa642ca0df",
+   "uqt_3c525b0f45e946bda660535b75258312"
+  ],
+  "shots": 20000
+ }
+}
