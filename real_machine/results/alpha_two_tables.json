@@ -1,0 +1,32 @@
+[
+ {
+  "m": 9,
+  "F": 0.0064,
+  "alpha_official": 0.174486128886833,
+  "alpha_measured": 0.02753
+ },
+ {
+  "m": 12,
+  "F": 0.0041,
+  "alpha_official": 0.11648189900720193,
+  "alpha_measured": 0.01186
+ },
+ {
+  "m": 15,
+  "F": 0.0014,
+  "alpha_official": 0.07775995079313068,
+  "alpha_measured": 0.00511
+ },
+ {
+  "m": 18,
+  "F": -0.0003,
+  "alpha_official": 0.05191029678333323,
+  "alpha_measured": 0.0022
+ },
+ {
+  "m": 21,
+  "F": -0.003,
+  "alpha_official": 0.0346538145233984,
+  "alpha_measured": 0.00095
+ }
+]
