@@ -41,7 +41,6 @@
 | `calib_full_13.py` | 三项错误率标定铺开：①读出 26 条 ②单门 13×8 档×10 串 ③双门 15 边×（CZ+两端单门）；`--dry-run` 自检 / `--submit --phase xxx` 断点续跑 |
 | `build_measured_params_v2.py` | 实测表生成：单门取 simultaneous 口径（边批内嵌单门均值），双门负值截 0 标注；产出 `measured_params.json` |
 | `measured_params.json` | 实测标定表（与官方表同构格式，含溯源 provenance） |
-| `alpha_with_deco.py` | ④退相干项试算（归因分析用，非定稿口径） |
 
 
 **布局**
@@ -61,7 +60,6 @@
 | `main_exp_result.json` | 主实验 m=21×K=30：逐线路 F_XEB 与汇总 |
 | `shallow_result.json` | 浅档验证 m=9/12/15/18×K=30 |
 | `alpha_two_tables.json` | 双表对比：官方表 α vs 实测表 α（各深度） |
-| `alpha_with_deco.json` | ④退相干项试算表（另表，不与主表混） |
 | `final_comparison.json` | 定稿对比（不剔除口径，表 A） |
 | `all_F_raw.json` | 全部原始 F 值 |
 | `shallow_iqr.json` | IQR 剔除对照表（含各档剔除数与占比） |
@@ -109,7 +107,6 @@ python3 calibrate_v2_pseudocode_2.0_isolated_neill.py   # 标定
 - ① 读出项：每比特乘 1 次（e_q 实测 = (e_0+e_1)/2）
 - ② 单门项：每比特乘 m 次（保真度直接连乘）
 - ③ 双门项：每条边乘其被 CZ 的次数（ABCACB 轮转逐色计数）
-- ④ 退相干项：定稿口径不含（归因分析见 `alpha_with_deco.py`，m=9 时 F/α 由 4.27 收敛至 1.27）
 
 ## 第三轮实验结果摘要（2026-10-08 ~ 10-10）
 
